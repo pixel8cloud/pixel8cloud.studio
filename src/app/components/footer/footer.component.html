@@ -7,8 +7,7 @@
         <div class="socials">
             <ng-container *ngFor="let social of socialLinks">
                 <a [href]="social.href" target="_blank" rel="noopener noreferrer external"
-                    [attr.data-platform]="social.alt" [ariaLabel]="social.ariaLabel" class="social-link"
-                    (click)="trackSocialClick(social.alt)">
+                    [attr.data-platform]="social.alt" [ariaLabel]="social.ariaLabel" class="social-link">
                     <div class="social-icon" [style.backgroundImage]="'url(' + social.src + ')'" [ariaHidden]="true">
                     </div>
                 </a>

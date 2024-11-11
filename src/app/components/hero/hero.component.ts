@@ -1,7 +1,6 @@
 import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser, NgFor } from '@angular/common';
 
-declare let gtag: Function;
 
 @Component({
   selector: 'app-hero',
@@ -51,13 +50,5 @@ export class HeroComponent implements AfterViewInit {
       });
     });
     observer_heading.observe(this.heading.nativeElement);
-  }
-
-  trackSocialClick(platform: string): void {
-    gtag('event', 'click', {
-      event_category: 'Social Link',
-      event_label: platform,
-      value: 1
-    });
   }
 }
