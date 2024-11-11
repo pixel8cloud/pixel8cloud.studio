@@ -1,0 +1,312 @@
+.footer
+    background-color: #d40059
+    padding: 40px 200px
+    font-size: 18px
+    .footer-header
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+        padding-top: 40px
+        padding-bottom: 80px
+        column-gap: 40px
+        color: #fafafa
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .header-content
+            h2
+                font-family: 'Inter-Bold'
+                font-size: 5em
+                line-height: 1em
+            p
+                font-family: 'Inter-Light'
+                font-size: 1em
+
+        .socials
+            display: flex
+            justify-content: center
+            align-items: center
+            column-gap: 40px
+            .social-link
+                width: 40px
+                height: 40px
+                text-decoration: none
+                cursor: pointer
+                .social-icon
+                    height: 100%
+                    width: 100%
+                    background-size: contain
+                    background-repeat: no-repeat
+                    background-position: center
+
+    .footer-content
+        display: flex
+        justify-content: space-between
+        padding: 80px 0px
+        .footer-content-left
+            .footer-column
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                justify-content: flex-start
+                row-gap: 40px
+                color: #ffafafaff
+                li
+                    list-style: none
+                    a
+                        font-family: 'Inter-Regular'
+                        font-size: 1.4em
+                        color: #fafafa
+                        text-decoration: none
+                        position: relative
+
+                        &::after
+                            content: "\2197"
+                            color: white
+                            font-size: 1em
+                            position: absolute
+                            right: -25px
+                            top: 0
+                            opacity: 0
+                        &:hover::after
+                            opacity: 1
+
+        .footer-content-right
+            color: #fafafa
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            h4
+                font-family: 'Inter-Bold'
+                font-size: 2.4em
+                margin-bottom: 10px
+            p
+                font-family: 'Inter-Regular'
+                font-size: 1em
+                line-height: 1em
+                margin-bottom: 20px
+
+            form
+                display: flex
+                background-color: #fafafa
+                border-radius: 100px
+                input
+                    flex: 1
+                    padding: 20px 30px
+                    border-radius: 100px
+                    border: none
+                    font-size: 1em
+                    font-family: 'Inter-Regular'
+                    outline: none
+                    width: 350px
+
+                button
+                    margin: 5px 5px 5px 0px
+                    width: 60px
+                    height: 60px
+                    border: none
+                    border-radius: 100px
+                    color: #fafafa
+                    background: transparent
+                    outline: none
+                    font-size: 1.8em
+                    background: #d40059
+                    cursor: pointer
+
+    .footer-bottom
+        color: #fafafa
+        border-top: 1px solid rgba(255, 255, 255, 0.3)
+        padding-top: 80px
+        padding-bottom: 40px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        h2
+            font-family: 'Inter-Medium'
+            font-size: 2em
+        p
+            font-family: 'Inter-Light'
+            font-size: 1em
+
+@media (min-width: 1200px) and (max-width: 1399px)
+    .footer
+        padding: 40px
+        font-size: 16px
+        .footer-header
+            padding-top: 20px
+            column-gap: 20px
+            padding-bottom: 60px
+
+        .footer-content
+            padding: 60px 0
+
+        .footer-bottom
+            padding-top: 60px
+            padding-bottom: 20px
+
+@media (min-width: 769px) and (max-width: 1199px)
+    .footer
+        padding: 30px
+        font-size: 16px
+        .footer-header
+            padding-top: 30px
+            column-gap: 20px
+            padding-bottom: 60px
+            .header-content
+                h2
+                    font-size: 3.4em
+
+                p
+                    font-size: 0.8em
+                    max-width: 400px
+
+            .socials
+                column-gap: 25px
+                .social-link
+                    height: 30px
+                    width: 30px
+
+        .footer-content
+            padding: 60px 0
+            .footer-content-left
+                .footer-column
+                    row-gap: 30px
+                    li
+                        a
+                            font-size: 1.2em
+                            &::after
+                                right: -20px
+            .footer-content-right
+                h4
+                    font-size: 2em
+                    margin-bottom: 0px
+                p
+                    font-size: 0.9em
+                    margin-bottom: 10px
+                form
+                    input
+                        padding: 12px 24px
+                        width: 300px
+                    button
+                        height: 50px
+                        width: 50px
+                        font-size: 1.4em
+
+        .footer-bottom
+            padding-top: 60px
+            padding-bottom: 30px
+            h2
+                font-size: 1.2em
+            p
+                font-size: 0.8em
+
+@media (max-width: 768px)
+    .footer
+        padding: 20px
+        font-size: 16px
+        .footer-header
+            padding-top: 20px
+            row-gap: 10px
+            padding-bottom: 40px
+            flex-direction: column
+            justify-content: center
+            .header-content
+                text-align: center
+                h2
+                    font-size: 3em
+
+                p
+                    font-size: 0.7em
+                    max-width: 400px
+
+            .socials
+                column-gap: 20px
+                .social-link
+                    height: 25px
+                    width: 25px
+
+        .footer-content
+            padding: 40px 0
+            .footer-content-left
+                .footer-column
+                    row-gap: 20px
+                    justify-content: center
+                    li
+                        a
+                            font-size: 1em
+                            &::after
+                                right: -15px
+
+            .footer-content-right
+                h4
+                    font-size: 1.2em
+                    margin-bottom: 0px
+                p
+                    font-size: 0.7em
+                    margin-bottom: 10px
+                form
+                    input
+                        padding: 12px 24px
+                        width: 260px
+                    button
+                        height: 40px
+                        width: 40px
+                        font-size: 1.2em
+
+        .footer-bottom
+            padding-top: 40px
+            padding-bottom: 20px
+            h2
+                font-size: 1.4em
+            p
+                font-size: 0.8em
+
+@media (max-width: 480px)
+    .footer
+        font-size: 14px
+        .footer-header
+            padding-top: 10px
+            padding-bottom: 30px
+            .header-content
+                h2
+                    font-size: 2.4em
+                p
+                    font-size: 0.7em
+
+        .footer-content
+            padding: 30px 0
+            flex-direction: column
+            row-gap: 40px
+            .footer-content-left
+                .footer-column
+                    flex-direction: row
+                    justify-content: center
+                    align-items: center
+                    column-gap: 40px
+                    row-gap: 10px
+                    flex-wrap: wrap
+                    li
+                        a
+                            font-size: 1em
+                            &::after
+                                right: -15px
+            .footer-content-right
+                h4
+                    font-size: 1.2em
+                p
+                    font-size: 0.7em
+                form
+                    input
+                        padding: 12px 24px
+                        width: 240px
+                    button
+                        font-size: 1.2em
+
+        .footer-bottom
+            padding-top: 30px
+            padding-bottom: 10px
+            flex-direction: column
+            justify-content: center
+            h2
+                font-size: 1.2em
+            p
+                font-size: 0.7em

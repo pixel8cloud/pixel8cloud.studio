@@ -1,0 +1,175 @@
+.about-page
+    opacity: 0
+    transform: translateY(50px)
+    transition: transform 0.3s ease,opacity 0.3s ease
+    &.in-view
+        opacity: 1
+        transform: translateY(0px)
+
+    .video
+        max-width: 1200px
+        width: 100%
+        position: relative
+        overflow: hidden
+        .video-metadata
+            border-radius: 12px
+            box-shadow: 0 4px 10px rgb(0,0,0,0.08)
+            width: 100%
+            height: auto
+            display: block
+
+.about-team
+    .team-heading
+        opacity: 0
+        transform: translateY(50px)
+        transition: transform 0.3s ease,opacity 0.3s ease
+        &.in-view
+            opacity: 1
+            transform: translateY(0px)
+    .team
+        display: flex
+        align-items: center
+        justify-content: center
+        column-gap: 40px
+        .team-member
+            padding: 30px
+            border-radius: 12px
+            text-align: center
+            width: 320px
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08)
+            opacity: 0
+            transform: translateY(50px)
+            transition: transform 0.3s ease,opacity 0.3s ease
+            &.in-view
+                opacity: 1
+                transform: translateY(0px)
+            &:nth-child(2)
+                transition-delay: 0.1s
+
+            img
+                border-radius: 50%
+                width: 100px
+                height: 100px
+
+            h3
+                font-size: 1.2em
+                color: #3f3f3f
+                font-family: 'Inter-Regular'
+
+            p
+                color: #6e6e6e
+                font-family: 'Inter-Light'
+                font-size: 0.8em
+                margin-bottom: 10px
+
+                &.desc
+                    margin-bottom: 0
+                    color: #666
+                    line-height: 1.2em
+                    font-family: 'Inter-Medium'
+
+.core-values
+    .about-choose-us
+        max-width: 800px
+        ul
+            font-family: 'Inter-Medium'
+            list-style-type: none
+            padding: 0
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            align-items: center
+            row-gap: 10px
+            column-gap: 20px
+
+            li
+                -webkit-tap-highlight-color: transparent
+                cursor: pointer
+                font-size: 1em
+                color: #3f3f3f
+                padding: 12px 20px
+                border: 2px solid #d40059
+                border-radius: 6px
+                transition: background-color 0.3s ease, color 0.3s ease
+
+            li:hover
+                background-color: #d40059
+                color: #fafafa
+
+@media (max-width: 1200px)
+    .about-team
+        .team
+            column-gap: 30px
+            .team-member
+                width: 240px
+                padding: 20px
+                img
+                    width: 80px
+                    height: 80px
+                h3
+                    font-size: 1em
+                p
+                    font-size: 0.7em
+
+    .core-values
+        .about-choose-us
+            ul
+                li
+                    font-size: 0.9em
+                    padding: 10px 16px
+@media (max-width: 768px)
+    .about-page
+        .video
+            .video-metadata
+                box-shadow: 0 2px 4px rgb(0,0,0,0.05)
+
+    .about-team
+        .team
+            column-gap: 20px
+            .team-member
+                width: 160px
+                border-radius: 8px
+                padding: 10px
+                box-shadow: 0 2px 4px rgb(0,0,0,0.05)
+                img
+                    width: 60px
+                    height: 60px
+                h3
+                    font-size: 0.9em
+                p
+                    font-size: 0.6em
+                    margin-bottom: 6px
+                    &.desc
+                        margin-bottom: 0
+
+    .core-values
+        .about-choose-us
+            ul
+                column-gap: 10px
+                li
+                    border: 1px solid #d40059
+                    font-size: 0.8em
+                    padding: 8px 12px
+                    border-radius: 4px
+@media (max-width: 480px)
+    .about-team
+        .team
+            flex-direction: column
+            row-gap: 20px
+            .team-member
+                border-radius: 6px
+                flex: 1
+                padding: 20px
+                width: auto
+                max-width: 200px
+                flex: 1
+                h3
+                    font-size: 1em
+                p
+                    font-size: 0.7em
+
+    .core-values
+        .about-choose-us
+            ul
+                li
+                    font-size: 0.7em

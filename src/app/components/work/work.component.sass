@@ -1,0 +1,135 @@
+.work-section
+    .categories-bar
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+
+        .category-items
+            display: flex
+            column-gap: 20px
+            -webkit-tap-highlight-color: transparent
+
+            button
+                background: none
+                border: none
+                font-size: 1em
+                font-family: 'Inter-Light'
+                cursor: pointer
+                padding: 10px 15px
+                color: #666
+                transform: scale(1)
+                transition: color 0.3s ease
+
+                &:hover
+                    color: #1b1a1a
+                &.active
+                    font-family: 'Inter-Medium'
+                    color: #d40059
+                    border-block-end: 2px solid red
+
+        .explore-all
+            -webkit-tap-highlight-color: transparent
+            font-family: 'Inter-Medium'
+            font-size: 1em
+            background: transparent
+            color: #1b1a1a
+            padding: 10px 20px
+            border-radius: 8px
+            cursor: pointer
+            text-decoration: none
+            transition: background-color 0.3s ease
+            span
+                transition: margin-right 0.3s ease
+            &:hover
+                color: #d40059
+                span
+                    margin-right: 10px
+
+    .work-grid
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 20px
+        width: 100%
+        .work-item
+            -webkit-tap-highlight-color: transparent
+            width: 100%
+            height: auto
+            background-color: #e3e3e3
+            border-radius: 8px
+            overflow: hidden
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08)
+            transition: box-shadow 0.3s ease, transform 0.3s ease
+            cursor: pointer
+            &:hover
+                box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12)
+                transform: scale(1.01)
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+@media (max-width: 1200px)
+    .work-section
+        .categories-bar
+            .category-items
+                column-gap: 15px
+                button
+                    font-size: 0.9em
+
+            .explore-all
+                font-size: 0.9em
+                &:hover
+                    span
+                        margin-right: 8px
+
+        .work-grid
+            gap: 15px
+
+@media (max-width: 768px)
+    .work-section
+        .categories-bar
+            column-gap: 10px
+            .category-items
+                gap: 10px
+                button
+                    font-size: 0.8em
+                    padding: 8px
+
+            .explore-all
+                font-size: 0.8em
+                padding: 8px
+                &:hover
+                    span
+                        margin-right: 6px
+
+        .work-grid
+            grid-template-columns: 1fr 1fr
+            .work-item
+                border-radius: 6px
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05)
+                &:hover
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08)
+
+@media (max-width: 480px)
+    .work-section
+        .categories-bar
+            column-gap: 5px
+
+            .category-items
+                gap: 5px
+                button
+                    font-size: 0.7em
+                    padding: 6px
+
+            .explore-all
+                font-size: 0.7em
+                padding: 6px
+                &:hover
+                    span
+                        margin-right: 4px
+
+        .work-grid
+            .work-item
+                border-radius: 4px

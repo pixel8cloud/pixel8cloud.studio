@@ -1,0 +1,25 @@
+<div class="work-section section">
+    <div class="title section-heading">
+        <h2>PORTFOLIO</h2>
+        <h3>Our Expertise in Action</h3>
+        <p>Explore our diverse range of projects, showcasing our expertise in UI/UX design, motion graphics, logo
+            creation, full-stack web development, and mobile app development. We take pride in delivering creative and
+            high-quality solutions that drive innovation and success for our clients.</p>
+    </div>
+    <div class="categories-bar">
+        <div class="category-items">
+            <button *ngFor="let category of categories" [class.active]="category === activeCategory"
+                (click)="setActiveCategory(category)">
+                {{ category }}
+            </button>
+        </div>
+        <a routerLink="/work" class="explore-all"><span>Explore All</span> &#8594;</a>
+    </div>
+    <div class="work-grid">
+        <div *ngFor="let work of getActiveWorkItems()" class="work-item">
+            <img [src]="work.imgSrc+'_600x600.jpg'" [alt]="work.alt"
+                [srcset]="work.imgSrc + '_200x200.jpg 100w, ' + work.imgSrc + '_400x400.jpg 200w, ' + work.imgSrc + '_600x600.jpg 400w'"
+                sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
+        </div>
+    </div>
+</div>

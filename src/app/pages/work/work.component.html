@@ -1,0 +1,66 @@
+<section class="work-section section" #section>
+    <div class="section-heading title work">
+        <h2>PORTFOLIO</h2>
+        <h3>Turning Ideas into Reality</h3>
+        <p>Here's a showcase of my recent projects, client collaborations, and past work. Each project demonstrates
+            my
+            skills in design, development, and client interaction.Explore a selection of projects that highlight our
+            innovative approach to solving real-world challenges. From crafting intuitive user interfaces to
+            building robust applications, each project reflects our commitment to quality and creativity.</p>
+    </div>
+    <div class="work-cards">
+        <div *ngFor="let project of latestProjects" class="work-card">
+            <img [src]="project.imgSrc+'_600x600.png'" [alt]="project.title"
+                [srcset]="project.imgSrc + '_200x200.png 100w, ' + project.imgSrc + '_400x400.png 200w, ' + project.imgSrc + '_600x600.png 400w'"
+                sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px" class="work-image">
+            <div class="work-content">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <a [href]="project.link" class="work-link" [ariaLabel]="project.ariaLabel" target="_blank"
+                    rel="noopener noreferrer">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="project-grid section">
+    <div class="category-bar">
+        <button *ngFor="let category of categories" [class.active]="category === activeCategory"
+            (click)="setActiveCategory(category)">
+            {{ category }}
+        </button>
+    </div>
+    <div class="work-grid">
+        <div *ngFor="let project of getActiveWorkItems()" class="work-item">
+            <img [src]="project.imgSrc+'_600x600.jpg'" [alt]="project.alt"
+                [srcset]="project.imgSrc + '_200x200.jpg 100w, ' + project.imgSrc + '_400x400.jpg 200w, ' + project.imgSrc + '_600x600.jpg 400w'"
+                sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
+        </div>
+    </div>
+</section>
+<section class="case-studies-section section">
+    <div class="title section-heading case-studies" #title>
+        <h2>Case Studies</h2>
+        <h3>Innovative Solutions in Action</h3>
+        <p>Explore in-depth analyses of our most impactful projects. Each case study outlines the challenges we faced,
+            the strategic approaches we implemented, and the outstanding results we achieved. From digital
+            transformations to bespoke software development, these stories demonstrate our expertise and dedication to
+            client success.</p>
+    </div>
+    <div class="timeline" #timeline>
+        <div *ngFor="let study of caseStudies" class="item">
+            <div class="content">
+                <h3 class="case-study-title">{{ study.title }}</h3>
+                <p>{{ study.description }}</p>
+                <a [href]="study.link" class="case-study-link" target="_blank" rel="noopener noreferrer external"
+                    [ariaLabel]="'Read more about ' + study.title">Read
+                    More</a>
+            </div>
+            <div class="marker"></div>
+            <div class="image">
+                <img [src]="study.imgSrc+'_600x600.jpg'" [alt]="study.alt"
+                    [srcset]="study.imgSrc + '_200x200.jpg 100w, ' + study.imgSrc + '_400x400.jpg 200w, ' + study.imgSrc + '_600x600.jpg 400w'"
+                    sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
+            </div>
+        </div>
+    </div>
+</section>

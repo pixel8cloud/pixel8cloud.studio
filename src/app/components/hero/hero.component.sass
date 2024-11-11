@@ -1,0 +1,401 @@
+.hero
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 860px
+    width: 100%
+    padding: 40px
+    overflow: hidden
+    font-size: 18px
+
+    .hero-content
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        &.in-view
+            .art-area-left
+                .art
+                    opacity: 1
+                    &:nth-child(1)
+                        transform: translateX(0px) rotateZ(10deg)
+
+                    &:nth-child(2)
+                        transform: translateX(-20px) rotateZ(0deg)
+
+                    &:nth-child(3)
+                        transform: translateX(0) rotateZ(-10deg)
+            .art-area-right
+                .art
+                    opacity: 1
+                    &:nth-child(1)
+                        transform: translateX(0) rotateZ(-10deg)
+
+                    &:nth-child(2)
+                        transform: translateX(20px) rotateZ(0deg)
+
+                    &:nth-child(3)
+                        transform: translateX(0) rotateZ(10deg)
+            .hero-content-area
+                opacity: 1
+                transform: translateY(0px)
+        .art-area-left,.art-area-right
+            height: 100%
+            display: flex
+            align-items: center
+            justify-content: space-between
+            flex-direction: column
+            .art
+                width: 200px
+                height: 200px
+                object-fit: cover
+                object-position: center
+                opacity: 0
+                transform: translateX(0)
+                transition: transform 0.3s ease, opacity 0.3s ease
+
+        .art-area-left
+            .art
+                &:nth-child(1)
+                    top: 0
+                    left: 0
+                    transform: translateX(-100px) rotateZ(10deg)
+                    transition-delay: 0s
+
+                &:nth-child(2)
+                    left: 0
+                    transform: translateX(-100px) rotateZ(0deg)
+                    transition-delay: 0.1s
+
+                &:nth-child(3)
+                    bottom: 0
+                    left: 0
+                    transform: translateX(-100px) rotateZ(-10deg)
+                    transition-delay: 0.2s
+
+        .art-area-right
+            .art
+                &:nth-child(1)
+                    top: 0
+                    right: 0
+                    transform: translateX(100px) rotateZ(-10deg)
+                    transition-delay: 0s
+
+                &:nth-child(2)
+                    right: 0
+                    transform: translateX(100px) rotateZ(0deg)
+                    transition-delay: 0.1s
+
+                &:nth-child(3)
+                    bottom: 0
+                    right: 0
+                    transform: translateX(100px) rotateZ(10deg)
+                    transition-delay: 0.2s
+
+        .hero-content-area
+            flex: 1
+            opacity: 0
+            transform: translateY(50px)
+            transition: transform 0.3s ease,opacity 0.3s ease
+
+            .hero-content-text
+                position: relative
+                display: flex
+                align-items: center
+                justify-content: center
+                flex-direction: column
+
+                h1
+                    font-family: 'Inter-Regular'
+                    font-weight: 400
+                    font-style: normal
+                    font-size: 8em
+                    color: #1b1a1a
+                    line-height: 0.8em
+                    text-align: center
+
+                h3
+                    font-family: 'Inter-Light'
+                    text-align: center
+                    font-size: 4em
+                    color: #1b1a1a
+                    border-radius: 100px
+                    padding: 0 40px
+                    line-height: 1.2em
+                    span:nth-child(1)
+                        color: #00ceb2
+                    span:nth-child(2)
+                        color: #d40059
+                .tagline
+                    font-family: 'Inter-Light'
+                    font-size: 1em
+                    color: #666
+                    margin-bottom: 20px
+                    text-align: center
+                .card
+                    position: absolute
+                    display: flex
+                    justify-content: center
+                    border-radius: 100px
+                    align-items: center
+                    background: white
+                    box-shadow: 0 4px 10px #00000014
+                    padding: 10px 14px
+                    top: -70px
+                    transform: translateX(-50%) translateY(40px) scale(0)
+                    opacity: 0
+                    animation-name: card-popup
+                    animation-duration: 7s
+                    animation-iteration-count: infinite
+                    @keyframes card-popup
+                        0%, 35%
+                            opacity: 0
+                            transform: scale(0.7) translateY(40px)
+                        40%, 50%
+                            opacity: 1
+                            transform: scale(1) translateY(0px)
+                        60%, 100%
+                            opacity: 0
+                            transform: scale(0.7) translateY(40px)
+
+                    .social-icon
+                        height: 30px
+                        width: 30px
+                        margin-right: 8px
+                    .gradient-text
+                        font-family: 'Inter-Regular'
+                        color: transparent
+                        background-image: linear-gradient(to right, #f58529, #dd2a7b, #8134af, #515bd4)
+                        -webkit-background-clip: text
+                        background-clip: text
+                        font-size: 1em
+                        line-height: 1em
+                        background-position: -100%
+                        animation: instagramTextAnimation 3s infinite alternate-reverse
+                        @keyframes instagramTextAnimation
+                            to
+                                background-position: 100%
+
+                .cursor
+                    z-index: 10
+                    height: 60px
+                    width: 60px
+                    position: absolute
+                    animation-name: cursor-move
+                    top: 100%
+                    animation-duration: 7s
+                    animation-iteration-count: infinite
+                    @keyframes cursor-move
+                        0%,100%
+                            top: 100%
+                        25%,65%
+                            transform: scale(1)
+                            top: calc( 20% )
+                        45%
+                            transform: scale(0.5)
+                            top: calc( 20% )
+
+            .socials
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 40px
+                .social-link
+                    width: 40px
+                    height: 40px
+                    text-decoration: none
+                    cursor: pointer
+                    .social-icon
+                        height: 100%
+                        width: 100%
+                        background-size: contain
+                        background-repeat: no-repeat
+                        background-position: center
+
+@media (max-width: 1400px)
+    .hero
+        height: 700px
+        .hero-content
+            .art-area-left,.art-area-right
+                .art
+                    width: 160px
+                    height: 160px
+            .hero-content-area
+                .hero-content-text
+                    h1
+                        font-size: 6em
+                    h3
+                        font-size: 3em
+                    .tagline
+                        font-size: 0.9em
+                        margin-bottom: 16px
+                    .card
+                        top: -60px
+                        .gradient-text
+                            font-size: 0.9em
+                    .cursor
+                        height: 50px
+                        width: 50px
+
+@media (max-width: 1200px)
+    .hero
+        height: 500px
+        padding: 30px
+        font-size: 16px
+
+        .hero-content
+            max-width: 800px
+            margin: 0 auto
+            &.in-view
+                .art-area-left
+                    .art
+                        &:nth-child(2)
+                            transform: translateX(-15px) rotateZ(0deg)
+                .art-area-right
+                    .art
+                        &:nth-child(2)
+                            transform: translateX(15px) rotateZ(0deg)
+            .art-area-left,.art-area-right
+                .art
+                    width: 120px
+                    height: 120px
+            .hero-content-area
+                .hero-content-text
+                    h1
+                        font-size: 4em
+
+                    h3
+                        font-size: 2.2em
+
+                    .tagline
+                        max-width: 500px
+                        font-size: 0.8em
+                        margin-bottom: 12px
+                    .card
+                        top: -55px
+                        padding: 8px 12px
+                        .gradient-text
+                            font-size: 0.8em
+                    .cursor
+                        height: 50px
+                        width: 50px
+
+                .socials
+                    gap: 25px
+                    .social-link
+                        width: 30px
+                        height: 30px
+@media (max-width: 768px)
+    .hero
+        height: auto
+        padding: 20px
+        font-size: 14px
+        .hero-content
+            flex-direction: column
+            row-gap: 20px
+            &.in-view
+                .art-area-left
+                    .art
+                        opacity: 1
+                        &:nth-child(1)
+                            transform: translateX(0px) rotateZ(0deg)
+
+                        &:nth-child(2)
+                            transform: translateX(0px) rotateZ(0deg)
+
+                        &:nth-child(3)
+                            transform: translateX(0) rotateZ(0deg)
+                .art-area-right
+                    .art
+                        opacity: 1
+                        &:nth-child(1)
+                            transform: translateX(0) rotateZ(0deg)
+
+                        &:nth-child(2)
+                            transform: translateX(0px) rotateZ(0deg)
+
+                        &:nth-child(3)
+                            transform: translateX(0) rotateZ(0deg)
+            .art-area-left,.art-area-right
+                flex-direction: row
+                column-gap: 20px
+                .art
+                    width: 100px
+                    height: 100px
+
+            .art-area-left
+                .art
+                    &:nth-child(1)
+                        transform: translateX(-100px) rotateZ(0deg)
+
+                    &:nth-child(2)
+                        transform: translateX(-100px) rotateZ(0deg)
+
+                    &:nth-child(3)
+                        transform: translateX(-100px) rotateZ(0deg)
+
+            .art-area-right
+                .art
+                    &:nth-child(1)
+                        transform: translateX(100px) rotateZ(0deg)
+
+                    &:nth-child(2)
+                        transform: translateX(100px) rotateZ(0deg)
+
+                    &:nth-child(3)
+                        transform: translateX(100px) rotateZ(0deg)
+            .hero-content-area
+                .hero-content-text
+                    h1
+                        font-size: 2.4em
+
+                    h3
+                        font-size: 1.6em
+                        padding: 0
+
+                    .tagline
+                        max-width: 400px
+                        margin-bottom: 10px
+                        font-size: 0.7em
+
+                    .card
+                        top: -45px
+                        padding: 8px 12px
+                        .gradient-text
+                            font-size: 0.7em
+                        .social-icon
+                            height: 20px
+                            width: 20px
+                            margin-right: 4px
+                    .cursor
+                        height: 40px
+                        width: 40px
+
+                .socials
+                    gap: 20px
+                    .social-link
+                        width: 25px
+                        height: 25px
+
+@media (max-width: 480px)
+    .hero
+        font-size: 12px
+        .hero-content
+            .art-area-left,.art-area-right
+                .art
+                    width: 80px
+                    height: 80px
+            .hero-content-area
+                .hero-content-text
+                    .tagline
+                        margin-bottom: 8px
+                    .card
+                        padding: 6px 10px
+                        .social-icon
+                            height: 20px
+                            width: 20px
+                            margin-right: 4px
+                    .cursor
+                        height: 30px
+                        width: 30px

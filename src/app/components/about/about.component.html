@@ -1,0 +1,53 @@
+<section class="statistics section" #aboutSection>
+    <div class="stats">
+        <h2 class="number">{{ ClientsCount }}+</h2>
+        <p class="label">Clients</p>
+    </div>
+    <div class="stats">
+        <h2 class="number">{{ ProjectsCount }}+</h2>
+        <p class="label">Projects</p>
+    </div>
+    <div class="stats">
+        <h2 class="number">{{ HoursCount }}+</h2>
+        <p class="label">Hours</p>
+    </div>
+</section>
+<section class="what-we-do section">
+    <div class="content-left section-heading">
+        <h2>WHAT WE DO</h2>
+        <h3 class="subtitle">We Are Here To Help You Create And Grow Your Digital Presence</h3>
+        <p>We offer a range of services to help bring your vision to life. Whether you're looking for a stunning UI/UX
+            design, full-stack development for web and mobile apps, motion design, or a professional logo, we've got you
+            covered.</p>
+        <a class="cta-button" routerLink="/services">
+            <button class="button">
+                <div class="svgIcon" style="background: url(./explore.svg) no-repeat; background-size: cover"></div>
+                Explore all services
+            </button>
+        </a>
+    </div>
+    <div class="cards-right" #cards>
+        <div class="service-card" #card>
+            <div class="icon-container" [style.backgroundColor]="cardsData[0].bgColor">
+                <div class="icon" [style.backgroundImage]="'url(' + cardsData[0].imgSrc + ')'" [ariaHidden]="true">
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>{{ cardsData[0].title }}</h3>
+                <p>{{ cardsData[0].description }}</p>
+                <a [routerLink]="cardsData[0].link" class="read-more">Read more</a>
+            </div>
+        </div>
+        <div class="service-card" *ngFor="let card of cardsData.slice(1, cardsData.length)">
+            <div class="icon-container" [style.backgroundColor]="card.bgColor">
+                <div class="icon" [style.backgroundImage]="'url(' + card.imgSrc + ')'" [ariaHidden]="true">
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.description }}</p>
+                <a [routerLink]="card.link" class="read-more">Read more</a>
+            </div>
+        </div>
+    </div>
+</section>

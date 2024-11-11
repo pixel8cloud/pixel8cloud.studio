@@ -1,0 +1,256 @@
+.statistics
+    margin: 0 auto
+    max-width: 1200px
+    flex-direction: row
+    justify-content: center
+    column-gap: 200px
+    opacity: 0
+    transform: translateY(50px)
+    transition: opacity 0.5s ease-in, transform 0.7s ease-in
+    font-size: 18px
+
+    &.in-view
+        opacity: 1
+        transform: translateY(0px)
+
+    .stats
+        font-family: 'Inter-Regular'
+        text-align: center
+        .number,.label
+            font-size: 2em
+
+        .label
+            color: #666
+
+.what-we-do
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    column-gap: 40px
+    .content-left
+        margin: 0 auto
+        min-width: 600px
+        max-width: 800px
+
+        .cta-button
+            -webkit-tap-highlight-color: transparent
+            text-decoration: none
+            .button
+                font-family: 'Inter-Medium'
+                font-size: 0.8em
+                display: flex
+                align-items: center
+                justify-content: flex-start
+                column-gap: 10px
+                background-color: #d40059
+                border-radius: 100px
+                color: #fafafa
+                border: none
+                position: relative
+                cursor: pointer
+                transition-duration: .2s
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08)
+                padding: 16px 14px
+                transition-duration: .5s
+
+                .svgIcon
+                    height: 30px
+                    width: 30px
+                    transition-duration: 1.5s
+
+                &:hover
+                    transition-duration: .5s
+
+                &:active
+                    transform: scale(0.97)
+                    transition-duration: .2s
+
+                &:hover .svgIcon
+                    transform: rotate(250deg)
+                    transition-duration: 1.5s
+
+    .cards-right
+        display: grid
+        grid-template-columns: 300px 300px
+        grid-template-rows: 300px 300px
+        gap: 20px
+        margin: 0 auto
+        &.in-view
+            .service-card
+                opacity: 1
+                transform: translateY(0px)
+        .service-card
+            display: flex
+            background: #fff
+            border-radius: 12px
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08)
+            padding: 20px
+            transition: transform 0.3s ease, box-shadow 0.3s ease
+            align-items: center
+            flex-direction: column
+            justify-content: flex-start
+            row-gap: 20px
+            opacity: 0
+            transform: translateY(50px)
+            transition: opacity 0.5s ease, transform 0.7s ease
+            &:nth-child(3)
+                transition-delay: 0.50s
+            &:nth-child(4)
+                transition-delay: 0.50s
+
+            .icon-container
+                padding: 15px
+                border-radius: 50%
+                display: flex
+                justify-content: center
+                align-items: center
+                .icon
+                    width: 35px
+                    height: 35px
+                    background-size: contain
+                    background-repeat: no-repeat
+                    background-position: center
+
+            .card-content
+                display: flex
+                flex-direction: column
+                align-items: center
+                text-align: center
+                height: 100%
+                h3
+                    font-family: 'Inter-Regular'
+                    font-size: 1.2em
+                    margin-bottom: 10px
+                    color: #3f3f3f
+
+                p
+                    font-family: 'Inter-Light'
+                    font-size: 0.8em
+                    line-height: 1.4em
+                    color: #666
+
+                .read-more
+                    -webkit-tap-highlight-color: transparent
+                    font-family: 'Inter-Light'
+                    font-size: 0.9em
+                    color: #6e6e6e
+                    text-decoration: none
+                    margin-top: auto
+                    &:hover
+                        text-decoration: underline
+
+@media (max-width: 1200px)
+    .statistics
+        font-size: 16px
+        column-gap: 100px
+        .stats
+            .number,.label
+                font-size: 1.6em
+
+    .what-we-do
+        .content-left
+            min-width: 400px
+            max-width: 600px
+            .cta-button
+                .button
+                    font-size: 0.9em
+                    padding: 14px 12px
+
+        .cards-right
+            grid-template-columns: 240px 240px
+            grid-template-rows: 240px 240px
+            .service-card
+                .icon-container
+                    padding: 10px
+                    .icon
+                        width: 30px
+                        height: 30px
+                .card-content
+                    h3
+                        font-size: 1em
+                        margin-bottom: 8px
+                    p
+                        line-height: 1.2em
+
+@media (max-width: 768px)
+    .statistics
+        font-size: 14px
+        column-gap: 80px
+        .stats
+            .number,.label
+                font-size: 1.4em
+
+    .what-we-do
+        .content-left
+            min-width: 400px
+            max-width: 600px
+            .cta-button
+                .button
+                    column-gap: 6px
+                    font-size: 0.8em
+                    padding: 12px 10px
+                    .svgIcon
+                        width: 25px
+                        height: 25px
+
+        .cards-right
+            gap: 10px
+            grid-template-columns: 200px 200px
+            grid-template-rows: 200px 200px
+            .service-card
+                border-radius: 8px
+                padding: 10px
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+                .icon-container
+                    .icon
+                        width: 25px
+                        height: 25px
+                .card-content
+                    h3
+                        font-size: 0.9em
+                        margin-bottom: 6px
+                    p
+                        font-size: 0.7em
+                    .read-more
+                        font-size: 0.8em
+
+@media (max-width: 480px)
+    .statistics
+        font-size: 12px
+        column-gap: 40px
+
+        .stats
+            .number,.label
+                font-size: 1.2em
+
+    .what-we-do
+        .content-left
+            margin: 0
+            min-width: 300px
+            max-width: 360px
+            .cta-button
+                .button
+                    font-size: 0.7em
+                    padding: 10px 8px
+                    .svgIcon
+                        width: 20px
+                        height: 20px
+
+        .cards-right
+            grid-template-columns: 150px 150px
+            grid-template-rows: 150px 150px
+            .service-card
+                row-gap: 10px
+                border-radius: 6px
+                .icon-container
+                    padding: 8px
+                    .icon
+                        width: 20px
+                        height: 20px
+
+                .card-content
+                    h3
+                        font-size: 0.8em
+                        margin-bottom: 4px
+                    p
+                        font-size: 0.6em

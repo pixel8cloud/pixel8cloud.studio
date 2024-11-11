@@ -1,0 +1,44 @@
+<div class="hero">
+    <div class="hero-content" #heading>
+        <div class="art-area-left">
+            <ng-container *ngFor="let art of artImages_1">
+                <img [src]="art.imgSrc+'_300x300.jpg'" [alt]="art.alt"
+                    [srcset]="art.imgSrc + '_100x100.jpg 100w, ' + art.imgSrc + '_200x200.jpg 200w, ' + art.imgSrc + '_300x300.jpg 300w'"
+                    sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,300px" class="art">
+            </ng-container>
+        </div>
+        <div class="hero-content-area">
+            <div class="hero-content-text">
+                <div class="card">
+                    <div class="social-icon" [style.backgroundImage]="'url(' + './socials/instagram.svg' + ')'"
+                        [ariaHidden]="true">
+                    </div>
+                    <p class="gradient-text">&#64;pixel8cloud</p>
+                </div>
+                <h1>Pixel8Cloud</h1>
+                <h3><span>Designer</span> & <span>Developer</span></h3>
+                <p class="tagline">We blend creativity and technology to craft stunning innovative designs that elevate
+                    your brand's digital presence.</p>
+                <div class="cursor" style="background: url(./cursor.svg) no-repeat; background-size: cover"
+                    [ariaHidden]="true">
+                </div>
+            </div>
+            <div class="socials">
+                <ng-container *ngFor="let social of socialLinks">
+                    <a [href]="social.href" target="_blank" rel="noopener noreferrer external" [attr.data-platform]="social.alt"
+                        [ariaLabel]="social.ariaLabel" class="social-link" (click)="trackSocialClick(social.alt)">
+                        <div class="social-icon" [style.backgroundImage]="'url(' + social.src + ')'"
+                            [ariaHidden]="true"></div>
+                    </a>
+                </ng-container>
+            </div>
+        </div>
+        <div class="art-area-right">
+            <ng-container *ngFor="let art of artImages_2">
+                <img [src]="art.imgSrc+'_300x300.jpg'" [alt]="art.alt"
+                    [srcset]="art.imgSrc + '_100x100.jpg 100w, ' + art.imgSrc + '_200x200.jpg 200w, ' + art.imgSrc + '_300x300.jpg 300w'"
+                    sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,300px" class="art">
+            </ng-container>
+        </div>
+    </div>
+</div>

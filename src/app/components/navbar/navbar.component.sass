@@ -1,0 +1,119 @@
+.navbar
+    width: 100%
+    height: 100px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 0px 40px
+    font-size: 18px
+    column-gap: 60px
+    .nav-links
+        list-style: none
+        display: flex
+        column-gap: 60px
+
+        li
+            margin: auto 0
+            a
+                text-decoration: none
+                font-family: 'Inter-Regular'
+                font-size: 1em
+                color: #1b1a1a
+                transition: color 0.3s ease
+                &.active-link
+                    color: #d40059
+                    font-family: 'Inter-Medium'
+
+            &:hover
+                cursor: pointer
+
+    .logo
+        height: 40px
+        img
+            height: 100%
+        .toggle-button
+            display: none
+            font-size: 1.6em
+            background: none
+            border: none
+            cursor: pointer
+            color: #1b1a1a
+
+@media  (max-width: 1200px)
+    .navbar
+        font-size: 16px
+        padding: 0px 30px
+        column-gap: 50px
+        .nav-links
+            column-gap: 50px
+            li
+                a
+                    font-size: 0.9em
+
+@media (max-width: 768px)
+    .navbar
+        font-size: 14px
+        padding: 0px 20px
+        height: 80px
+        column-gap: 40px
+        .nav-links
+            column-gap: 40px
+            li
+                a
+                    font-size: 0.9em
+        .logo
+            height: 35px
+
+@media  (max-width: 554px)
+    .navbar
+        font-size: 12px
+        column-gap: 30px
+
+        .nav-links
+            column-gap: 30px
+            li
+                a
+                    font-size: 0.8em
+
+@media (max-width: 480px)
+    .navbar
+        font-size: 14px
+        padding: 0
+        background: white
+        height: 60px
+        flex-direction: column
+        align-items: flex-start
+        justify-content: center
+        position: relative
+        z-index: 10
+        .nav-links
+            width: 100%
+            background: white
+            overflow: hidden
+            position: absolute
+            top: 60px
+            max-height: 0px
+            flex-direction: column
+            row-gap: 20px
+            transition: max-height 0.5s
+            padding: 0 20px
+            box-shadow: 0 2px 4px rgb(0,0,0,0.05)
+            li
+                &:first-child
+                    margin-top: 10px
+                &:last-child
+                    margin-bottom: 20px
+            &.active
+                max-height: 500px
+
+        .logo
+            height: 30px
+            background: white
+            padding: 0 20px
+            width: 100%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .toggle-button
+                -webkit-tap-highlight-color: transparent
+                display: block

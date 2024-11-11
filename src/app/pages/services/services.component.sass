@@ -1,0 +1,474 @@
+.services-section
+    &.in-view
+        .services
+            opacity: 1
+            transform: translateY(0px)
+        .service-cards
+            .service-card
+                opacity: 1
+                transform: translateY(0px)
+
+    .service-cards
+        display: flex
+        justify-content: center
+        gap: 20px
+        flex-wrap: wrap
+
+        .service-card
+            display: flex
+            width: 300px
+            background: #fff
+            border-radius: 12px
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08)
+            padding: 20px
+            transition: transform 0.3s ease, box-shadow 0.3s ease
+            align-items: center
+            flex-direction: column
+            justify-content: flex-start
+            row-gap: 20px
+            opacity: 0
+            transform: translateY(50px)
+            transition: opacity 0.5s ease, transform 0.7s ease
+            &:nth-child(2)
+                transition-delay: 0.1s
+            &:nth-child(3)
+                transition-delay: 0.2s
+            &:nth-child(4)
+                transition-delay: 0.3s
+
+            .icon-container
+                padding: 15px
+                border-radius: 50%
+                display: flex
+                justify-content: center
+                align-items: center
+                .icon
+                    width: 35px
+                    height: 35px
+                    background-size: contain
+                    background-repeat: no-repeat
+                    background-position: center
+            .card-content
+                text-align: center
+                h3
+                    font-family: 'Inter-Regular'
+                    font-size: 1.2em
+                    margin-bottom: 10px
+                    color: #3f3f3f
+
+                p
+                    font-family: 'Inter-Light'
+                    font-size: 0.8em
+                    line-height: 1.4em
+                    color: #666
+                    margin-bottom: 20px
+
+.process-section
+    .process-title
+        opacity: 0
+        transform: translateY(50px)
+        transition: transform 0.3s ease,opacity 0.3s ease
+        &.in-view
+            opacity: 1
+            transform: translateY(0px)
+
+    .process-container
+        display: flex
+        margin: 0 auto
+        max-width: 800px
+        opacity: 0
+        transform: translateY(50px)
+        transition: transform 0.3s ease,opacity 0.3s ease
+        &.in-view
+            opacity: 1
+            transform: translateY(0px)
+
+        .process-left-panel
+            width: 200px
+
+            .steps-list
+                list-style: none
+                padding: 0
+                margin: 0
+                position: relative
+
+                .step-item
+                    -webkit-tap-highlight-color: transparent
+                    position: relative
+                    padding: 20px 10px 20px 40px
+                    cursor: pointer
+                    font-size: 1.2rem
+                    color: #3f3f3f
+                    font-family: 'Inter-Medium'
+                    user-select: none
+                    &.active
+                        color: #d40059
+
+                    &:hover
+                        color: #d40059
+
+                    .timeline-marker
+                        z-index: 1
+                        position: absolute
+                        left: 0
+                        top: 50%
+                        transform: translateY(-50%)
+                        width: 15px
+                        height: 15px
+                        background-color: #ffffff
+                        border: 1px solid #d40059
+                        border-radius: 50%
+                        &.active
+                            background-color: #d40059
+
+                    .timeline-line
+                        position: absolute
+                        left: 6px
+                        top: 100%
+                        transform: translateY(-50%)
+                        width: 3px
+                        height: 100%
+                        background-color: #d40059
+
+        .process-right-content
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: flex-end
+            max-width: 600px
+            padding-left: 30px
+            padding-top: 20px
+            padding-bottom: 20px
+
+            .process-description
+                p
+                    text-align: justify
+                    font-size: 0.9em
+                    line-height: 1.4em
+                    color: #3f3f3f
+                    font-family: 'Inter-Regular'
+
+            .next-btn
+                -webkit-tap-highlight-color: transparent
+                padding: 8px 16px
+                border: 1px solid #d40059
+                background: #d40059
+                color: #fafafa
+                border-radius: 4px
+                cursor: pointer
+                font-size: 0.8em
+                font-family: 'Inter-Medium'
+                &:hover
+                    background-color: #bf0050
+
+.cost-estimator-section
+    align-items: flex-start
+    .content-left
+        max-width: 800px
+        opacity: 0
+        transform: translateY(50px)
+        transition: transform 0.3s ease,opacity 0.3s ease
+        &.in-view
+            opacity: 1
+            transform: translateY(0px)
+
+    .table-heading
+        display: flex
+        align-items: center
+        p
+            font-family: 'Inter-Regular'
+            font-size: 0.8em
+            color: #1b1a1a
+
+        .currency-toggle
+            display: flex
+            align-items: center
+
+            .switch
+                position: relative
+                height: 1.5rem
+                width: 3rem
+                cursor: pointer
+                appearance: none
+                -webkit-appearance: none
+                -webkit-tap-highlight-color: transparent
+                border-radius: 100px
+                background-color: rgba(100, 116, 139, 0.377)
+                transition: all .3s ease
+
+                &:checked
+                    background-color: #d40059
+
+                &::before
+                    position: absolute
+                    content: ""
+                    left: calc(1.5rem - 1.6rem)
+                    top: calc(1.5rem - 1.6rem)
+                    display: block
+                    height: 1.6rem
+                    width: 1.6rem
+                    cursor: pointer
+                    border: 1px solid rgba(100, 116, 139, 0.527)
+                    border-radius: 100px
+                    background-color: rgba(255, 255, 255, 1)
+                    box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327)
+                    transition: all .3s ease
+
+                &:checked:before
+                    transform: translateX(100%)
+                    border-color: #d40059
+            .currency-label
+                font-size: 1em
+                font-family: 'Inter-Medium'
+                margin: 0 10px
+                color: #6e6e6e
+
+                &.active
+                    color: #d40059
+    .scrollable-table
+        display: block
+        width: 100%
+        overflow-x: auto
+        width: 100%
+        border-collapse: collapse
+
+        thead
+            color: #fafafa
+
+            th
+                background-color: #d40059
+                min-width: 200px
+                font-family: 'Inter-Regular'
+                padding: 30px 15px
+                line-height: 1.2em
+                text-align: center
+                font-size: 1.2rem
+                &:first-child
+                    position: sticky
+                    left: 0
+                    z-index: 1
+
+        tbody
+            color: #1b1a1a
+            tr
+                border-bottom: 1px solid #dadada
+
+                &:hover
+                    background-color: #f9f9f9
+
+                td
+                    min-width: 200px
+                    padding: 30px 15px
+                    line-height: 1.2em
+                    font-size: 0.8em
+                    text-align: center
+                    vertical-align: middle
+                    font-family: 'Inter-Light'
+                    &:first-child
+                        font-family: 'Inter-Medium'
+                        font-size: 0.9em
+                        text-align: left
+                        background-color: #f5f5f5
+                        position: sticky
+                        left: 0
+                        z-index: 1
+
+                    ul
+                        list-style: none
+                        margin: 0
+
+                .tick
+                    color: #28a745
+                    font-size: 1.5rem
+
+                .cross
+                    color: #d40012
+                    font-size: 1.5rem
+
+@media (max-width: 1200px)
+    .services-section
+        .service-cards
+            gap: 15px
+            .service-card
+                width: 240px
+                .icon-container
+                    padding: 10px
+                    .icon
+                        width: 30px
+                        height: 30px
+                .card-content
+                    h3
+                        font-size: 1em
+                        margin-bottom: 8px
+                    p
+                        line-height: 1.2em
+                        margin-bottom: 10px
+
+    .process-section
+        .process-container
+            .process-left-panel
+                .steps-list
+                    .step-item
+                        font-size: 1em
+                        padding: 15px 10px 15px 30px
+                        .timeline-line
+                            width: 2px
+                            left: 5px
+                        .timeline-marker
+                            width: 12px
+                            height: 12px
+            .process-right-content
+                padding-left: 20px
+                padding-top: 10px
+                padding-bottom: 10px
+
+                .process-description
+                    p
+                        font-size: 0.8em
+
+    .cost-estimator-section
+        .table-heading
+            p
+                font-size: 0.7em
+            .currency-toggle
+                .switch
+                    height: 1.2em
+                    width: 2.4em
+                    &::before
+                        left: calc(1.2rem - 1.3rem)
+                        top: calc(1.2rem - 1.3rem)
+                        height: 1.3em
+                        width: 1.3em
+                .currency-label
+                    font-size: 0.9em
+
+        .scrollable-table
+            thead
+                th
+                    font-size: 1em
+                    min-width: 150px
+                    padding: 20px 10px
+            tbody
+                tr
+                    td
+                        padding: 20px 10px
+                        min-width: 150px
+                        font-size: 0.7em
+                        &:first-child
+                            font-size: 0.8em
+                    .tick
+                        font-size: 1.2em
+                    .cross
+                        font-size: 1.2em
+
+@media (max-width: 768px)
+    .services-section
+        .service-cards
+            gap: 10px
+            .service-card
+                width: 200px
+                border-radius: 8px
+                padding: 10px
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+                .icon-container
+                    .icon
+                        width: 25px
+                        height: 25px
+                .card-content
+                    h3
+                        font-size: 0.9em
+                        margin-bottom: 6px
+                    p
+                        font-size: 0.7em
+
+    .process-section
+        .process-container
+            .process-left-panel
+                .steps-list
+                    .step-item
+                        font-size: 0.9em
+                        padding: 10px 6px 10px 20px
+            .process-right-content
+                padding-left: 10px
+
+                .process-description
+                    p
+                        font-size: 0.7em
+                .next-btn
+                    padding: 6px 12px
+                    border-radius: 3px
+
+    .cost-estimator-section
+        .table-heading
+            .currency-toggle
+                .currency-label
+                    font-size: 0.8em
+
+        .scrollable-table
+            thead
+                th
+                    font-size: 0.9em
+                    min-width: 100px
+                    padding: 10px
+            tbody
+                tr
+                    td
+                        padding: 10px
+                        min-width: 100px
+                    .tick
+                        font-size: 1em
+                    .cross
+                        font-size: 1em
+@media (max-width: 480px)
+    .services-section
+        .service-cards
+            .service-card
+                width: 150px
+                row-gap: 10px
+                border-radius: 6px
+                .icon-container
+                    padding: 8px
+                    .icon
+                        width: 20px
+                        height: 20px
+
+                .card-content
+                    h3
+                        font-size: 0.8em
+                        margin-bottom: 4px
+                    p
+                        font-size: 0.6em
+
+    .process-section
+        .process-container
+            .process-left-panel
+                .steps-list
+                    .step-item
+                        font-size: 0.8em
+                        padding: 10px 6px 10px 20px
+
+    .cost-estimator-section
+        .table-heading
+            .currency-toggle
+                .currency-label
+                    font-size: 0.8em
+
+        .scrollable-table
+            thead
+                th
+                    font-size: 0.8em
+                    min-width: 100px
+                    padding: 10px
+            tbody
+                tr
+                    td
+                        padding: 10px
+                        min-width: 100px
+                        font-size: 0.6em
+                        &:first-child
+                            font-size: 0.7em
+
+                    .tick
+                        font-size: 0.9em
+                    .cross
+                        font-size: 0.9em

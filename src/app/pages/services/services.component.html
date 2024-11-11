@@ -1,0 +1,204 @@
+<section class="services-section section" #section>
+    <div class="section-heading title services">
+        <h2>OUR SERVICES</h2>
+        <h3>Why Choose Us</h3>
+        <p> We offer a wide range of services tailored to meet the unique needs of our clients. Our team of experts is
+            committed to delivering innovative solutions that enhance user experience, improve business efficiency, and
+            drive growth.</p>
+    </div>
+    <div class="service-cards">
+        <div class="service-card" *ngFor="let card of cardsData">
+            <div class="icon-container" [style.backgroundColor]="card.bgColor">
+                <div class="icon" [style.backgroundImage]="'url(' + card.imgSrc + ')'" [ariaHidden]="true">
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="process-section section">
+    <div class="process-title section-heading title" #title>
+        <h2>Our Process</h2>
+        <h3>A Streamlined Approach to Success</h3>
+        <p>We follow a clear, step-by-step process that ensures smooth collaboration and exceptional results. From
+            initial contact to post-launch support, each phase of our process is designed to deliver the best outcomes
+            for your project. Here's how we turn your vision into reality:</p>
+    </div>
+    <div class="process-container" #container>
+        <div class="process-left-panel">
+            <ul class="steps-list">
+                <li *ngFor="let step of steps; let i = index" [ngClass]="{'active': i === activeStep}"
+                    (click)="setActiveStep(i)" class="step-item">
+                    <span class="timeline-marker" [ngClass]="{'active': i === activeStep}"></span>
+                    {{ step.title }}
+                    <span class="timeline-line" *ngIf="i < steps.length - 1"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="process-right-content">
+            <div *ngIf="steps[activeStep]" class="process-description">
+                <p>{{ steps[activeStep].description }}</p>
+            </div>
+            <button class="next-btn" (click)="activeStep=(activeStep+1)%steps.length">Next</button>
+        </div>
+    </div>
+</section>
+<section class="cost-estimator-section section">
+    <div class="content-left section-heading" #cost>
+        <h2>How Much Does It Cost?</h2>
+        <h3 class="subtitle">Get an Estimate for Your Project Based On Your Requirements</h3>
+        <p>
+            We provide a diverse range of services tailored to bring your vision to life. Our offerings include
+            captivating UI/UX design, comprehensive full-stack development for both web and mobile applications,
+            dynamic motion design, and professional logo creation.
+        </p>
+        <p>
+            The cost of your project will depend on various factors such as the complexity of the design, the
+            technologies used, and the scope of development required. To provide a more accurate estimate, we
+            encourage you to reach out to us with your specific requirements. Our team is here to guide you
+            through the process and help you understand the investment needed to achieve your goals.
+        </p>
+    </div>
+    <div class="table-heading">
+        <p>*This is Estimated cost, actual cost
+            may be different</p>
+        <div class="currency-toggle">
+            <span class="currency-label" [ngClass]="{'active': !isINR}">USD</span>
+            <input class="switch" type="checkbox" [(ngModel)]="isINR" (change)="toggleCurrency()" />
+            <span class="currency-label" [ngClass]="{'active': isINR}">INR</span>
+        </div>
+    </div>
+
+    <table class="scrollable-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>UI Design</th>
+                <th>Frontend Development</th>
+                <th>App Development</th>
+                <th>Backend Development</th>
+                <th>Full Stack Development</th>
+                <th>Logo Design</th>
+                <th>Motion Design</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Description</td>
+                <td>Create visually appealing and user-friendly interfaces.</td>
+                <td>Build interactive and responsive user interfaces.</td>
+                <td>Develop and maintain mobile applications.</td>
+                <td>Develop APIs, databases, and server-side logic.</td>
+                <td>Complete development, including frontend & backend.</td>
+                <td>Design a unique and professional logo.</td>
+                <td>Create animations and motion graphics.</td>
+            </tr>
+            <tr>
+                <td>Features</td>
+                <td>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Wireframing</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Responsive Design</li>
+                        <li>Cross-browser Compatibility</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Cross-platform Development</li>
+                        <li>Native & Hybrid Apps</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Server-side Logic</li>
+                        <li>Data Modeling</li>
+                        <li>API Development</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Frontend & Backend Integration</li>
+                        <li>RESTful APIs</li>
+                        <li>Database Management</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Custom Logo Design</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Animation Design</li>
+                        <li>Product Motion</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Technologies Used</td>
+                <td>Figma</td>
+                <td>React, Next.js, Angular</td>
+                <td>Flutter</td>
+                <td>Node.js, Golang, MongoDB, Postgres, MySQL</td>
+                <td>*Depend on Frontend and Backend</td>
+                <td>Adobe Illustrator, Figma</td>
+                <td>Adobe After Effects</td>
+            </tr>
+            <tr>
+                <td>Hourly Rates</td>
+                <td><span class="tick">✔</span></td>
+                <td><span class="tick">✔</span></td>
+                <td><span class="tick">✔</span></td>
+                <td><span class="tick">✔</span></td>
+                <td><span class="tick">✔</span></td>
+                <td><span class="cross">✖</span></td>
+                <td><span class="cross">✖</span></td>
+            </tr>
+            <tr>
+                <td>Charges per Hour</td>
+                <td>{{ chargesPerHour.uiDesign }} {{ selectedCurrency }}</td>
+                <td>{{ chargesPerHour.frontendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ chargesPerHour.appDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ chargesPerHour.backendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ chargesPerHour.fullStackDevelopment }} {{
+                    selectedCurrency }}<br><i>*{{ chargesPerHour.fullStackAppDevelopment }} {{selectedCurrency}} for
+                        App</i></td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>1-Week Project<br>(5 hrs/day)</td>
+                <td>{{ weeklyCost.uiDesign }} {{ selectedCurrency }}</td>
+                <td>{{ weeklyCost.frontendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ weeklyCost.appDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ weeklyCost.backendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ weeklyCost.fullStackDevelopment }} {{ selectedCurrency
+                    }}<br><i>*{{ weeklyCost.fullStackAppDevelopment }} {{selectedCurrency}} for App</i></td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>1-Month Project<br>(5 hrs/day)</td>
+                <td>{{ monthlyCost.uiDesign }} {{ selectedCurrency }}</td>
+                <td>{{ monthlyCost.frontendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ monthlyCost.appDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ monthlyCost.backendDevelopment }} {{ selectedCurrency }}</td>
+                <td>{{ monthlyCost.fullStackDevelopment }} {{ selectedCurrency
+                    }}<br><i>*{{ monthlyCost.fullStackAppDevelopment }} {{selectedCurrency}} for App</i></td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>

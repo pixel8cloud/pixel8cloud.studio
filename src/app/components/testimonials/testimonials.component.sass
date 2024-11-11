@@ -1,0 +1,274 @@
+.testimonials-section
+    padding: 40px 0px
+    .title
+        padding: 0px 40px
+    .slides
+        padding: 20px 0px
+        margin: auto
+        overflow-x: scroll
+        display: flex
+        column-gap: 40px
+        scroll-snap-type: x mandatory
+        max-width: 100%
+        width: max-content
+        position: relative
+        scroll-behavior: smooth
+        &::before, &::after
+            content: ""
+            width: 40vw
+            flex-shrink: 0
+        &::-webkit-scrollbar
+            display: none
+
+        .testimonial
+            width: 100%
+            min-width: 550px
+            padding: 30px
+            text-align: center
+            scroll-snap-align: center
+            background: white
+            border-radius: 12px
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08)
+
+            .quote
+                font-family: 'Inter-Light'
+                font-size: 0.8em
+                color: #666
+                line-height: 1.4em
+
+            .client-info
+                display: flex
+                justify-content: center
+                align-items: center
+                column-gap: 15px
+                margin-bottom: 20px
+
+                .client-image
+                    width: 60px
+                    height: 60px
+                    border-radius: 50%
+                    object-fit: cover
+
+                .client-details
+                    text-align: left
+
+                    .client-name
+                        margin: 0
+                        font-family: 'Inter-Medium'
+                        font-size: 1em
+                        color: #3f3f3f
+
+                    .client-role
+                        margin: 0
+                        font-family: 'Inter-Regular'
+                        font-size: 0.8em
+                        color: #6e6e6e
+
+    .dots
+        display: flex
+        justify-content: center
+        align-items: center
+        column-gap: 10px
+        margin-top: 10px
+
+        span
+            -webkit-tap-highlight-color: transparent
+            width: 10px
+            height: 10px
+            background-color: #dadada
+            border-radius: 50%
+            cursor: pointer
+            transition: background-color 0.3s ease
+
+            &.active
+                background-color: #d40059
+
+.cta-section
+    padding: 40px 200px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 18px
+    margin-bottom: 40px
+    font-size: 18px
+    .cta-content
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 200px
+        width: 100%
+        max-width: 1200px
+        column-gap: 20px
+        .cta-left
+            flex: 1
+            display: flex
+            align-items: center
+            column-gap: 60px
+            color: #1b1a1a
+            .image
+                height: 200px
+                width: 200px
+                position: relative
+                img
+                    left: 0
+                    position: absolute
+                    height: 100%
+                    width: auto
+                    &:first-child
+                        transform: rotateY(180deg) translateX(-30px)
+            h2
+                font-size: 1.6em
+                font-family: 'Inter-Regular'
+                margin-bottom: 10px
+
+            p
+                font-family: 'Inter-Regular'
+                font-size: 1em
+
+        .cta-right
+            display: flex
+            align-items: center
+            column-gap: 15px
+            a
+                text-decoration: none
+                .cta-button
+                    -webkit-tap-highlight-color: transparent
+                    padding: 12px 18px
+                    font-size: 1em
+                    border: none
+                    border-radius: 50px
+                    cursor: pointer
+                    font-family: 'Inter-Medium'
+                    transition: background-color 0.3s ease
+
+                    &.primary
+                        background-color: #d40059
+                        color: #fafafa
+                        border: 1px solid #d40059
+
+                    &.secondary
+                        background-color: transparent
+                        color: #d40059
+                        border: 2px solid #d40059
+
+@media screen and (max-width: 1200px)
+    .testimonials-section
+        padding: 40px 0px
+        row-gap: 10px
+        .slides
+            .testimonial
+                padding: 20px
+                min-width: 450px
+
+    .cta-section
+        font-size: 16px
+        padding: 40px
+        .cta-content
+            height: 150px
+            .cta-left
+                column-gap: 40px
+                .image
+                    height: 150px
+                    width: 150px
+                h2
+                    font-size: 1.2em
+                    margin-bottom: 8px
+                p
+                    font-size: 0.9em
+            .cta-right
+                a
+                    .cta-button
+                        padding: 10px 16px
+                        font-size: 0.9em
+
+@media screen and (max-width: 768px)
+    .testimonials-section
+        padding: 20px 0px
+        row-gap: 0px
+        .title
+            padding: 0px 20px
+        .slides
+            .testimonial
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+                min-width: 300px
+                border-radius: 8px
+                .quote
+                    font-size: 0.7em
+                    line-height: 1.3em
+                .client-info
+                    column-gap: 10px
+                    margin-bottom: 10px
+                    .client-image
+                        width: 40px
+                        height: 40px
+                    .client-details
+                        .client-name
+                            font-size: 0.9em
+                        .client-role
+                            font-size: 0.7em
+
+    .cta-section
+        font-size: 14px
+        padding: 20px
+        margin-bottom: 20px
+        .cta-content
+            height: 80px
+            .cta-left
+                column-gap: 20px
+                .image
+                    height: 80px
+                    width: 80px
+                    img
+                        &:first-child
+                            transform: rotateY(180deg) translateX(-10px)
+                h2
+                    font-size: 1em
+                    margin-bottom: 4px
+                    line-height: 1em
+                p
+                    font-size: 0.8em
+                    line-height: 1em
+            .cta-right
+                column-gap: 10px
+                a
+                    .cta-button
+                        padding: 8px 12px
+                        font-size: 0.8em
+
+@media screen and (max-width: 480px)
+    .testimonials-section
+        .slides
+            .testimonial
+                min-width: 300px
+                padding: 10px
+                .client-info
+                    gap: 8px
+                    .client-image
+                        width: 30px
+                        height: 30px
+                    .client-details
+                        .client-name
+                            font-size: 0.8em
+                        .client-role
+                            font-size: 0.6em
+        .dots
+            column-gap: 8px
+            span
+                width: 8px
+                height: 8px
+
+    .cta-section
+        font-size: 12px
+        margin-bottom: 0
+        .cta-content
+            height: auto
+            flex-direction: column
+            row-gap: 20px
+            .cta-left
+                text-align: center
+                .image
+                    display: none
+                h2
+                    font-size: 1.2em
+                p
+                    font-size: 0.9em

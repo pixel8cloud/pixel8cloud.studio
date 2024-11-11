@@ -1,0 +1,55 @@
+<div class="testimonials-section section">
+    <div class="title section-heading">
+        <h2>TESTIMONIALS</h2>
+        <h3>What Clients Say</h3>
+        <p>Our clients' satisfaction is at the heart of everything we do. Here's what they have to say about their
+            experience working with us. From creative design solutions to reliable development services, we pride
+            ourselves on delivering excellence in every project.</p>
+    </div>
+    <div class="slides" #slidesContainer>
+        <div class="testimonial" *ngFor="let testimonial of testimonials">
+            <div class="client-info">
+                <img [src]="testimonial.image + '_300x300.jpg'" [alt]="testimonial.name" class="client-image" [srcset]="
+                  testimonial.image + '_100x100.jpg 100w, ' + 
+                  testimonial.image + '_200x200.jpg 200w, ' + 
+                  testimonial.image + '_300x300.jpg 300w'"
+                    sizes="(max-width: 600px) 100px, (max-width: 1200px) 200px, 300px" />
+                <div class="client-details">
+                    <h4 class="client-name">{{ testimonial.name }}</h4>
+                    <p class="client-role">{{ testimonial.role }}</p>
+                </div>
+            </div>
+            <p class="quote">{{ testimonial.quote }}</p>
+        </div>
+    </div>
+    <div class="dots">
+        <span *ngFor="let testimonial of testimonials; let i = index" (click)="scrollToSlide(i)"
+            [class.active]="i === currentSlideIndex"></span>
+    </div>
+</div>
+<section class="cta-section">
+    <div class="cta-content">
+        <div class="cta-left">
+            <div class="image">
+                <img src="./3d/pencil_3d_360x360.png" alt="pencil"
+                    srcset="./3d/pencil_3d_180x180.png 180w, ./3d/pencil_3d_360x360.png 360w"
+                    sizes="(max-width: 600px) 180px,360px">
+                <img src="./3d/code_3d_360x360.png" alt="code"
+                    srcset="./3d/code_3d_180x180.png 180w, ./3d/code_3d_360x360.png 360w"
+                    sizes="(max-width: 600px) 180px,360px">
+            </div>
+            <div>
+                <h2>Your Next Step Awaits!</h2>
+                <p>Choose how you want to proceed.</p>
+            </div>
+        </div>
+        <div class="cta-right">
+            <a routerLink="/services">
+                <button class="cta-button primary">Want to Develop</button>
+            </a>
+            <a routerLink="/services">
+                <button class="cta-button secondary">Need a Design</button>
+            </a>
+        </div>
+    </div>
+</section>

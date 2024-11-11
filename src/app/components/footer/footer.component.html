@@ -1,0 +1,41 @@
+<footer class="footer">
+    <div class="footer-header">
+        <div class="header-content">
+            <h2>Get In Touch</h2>
+            <p>If you have any questions or would like to discuss a project, drop us an email!</p>
+        </div>
+        <div class="socials">
+            <ng-container *ngFor="let social of socialLinks">
+                <a [href]="social.href" target="_blank" rel="noopener noreferrer external"
+                    [attr.data-platform]="social.alt" [ariaLabel]="social.ariaLabel" class="social-link"
+                    (click)="trackSocialClick(social.alt)">
+                    <div class="social-icon" [style.backgroundImage]="'url(' + social.src + ')'" [ariaHidden]="true">
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-content-left">
+            <div class="footer-column">
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/work">Portfolio</a></li>
+                <li><a routerLink="/services">Services</a></li>
+                <li><a routerLink="/about">About Us</a></li>
+                <li><a routerLink="/contact">Contact Us</a></li>
+            </div>
+        </div>
+        <div class="footer-content-right">
+            <h4>Subscribe to our newsletter</h4>
+            <p>Stay updated with our latest news</p>
+            <form action="#">
+                <input type="email" placeholder="Your email" />
+                <button type="submit">&#8599;</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2>PIXEL8CLOUD</h2>
+        <p>&copy; 2024 Pixel8Cloud. All Rights Reserved.</p>
+    </div>
+</footer>
