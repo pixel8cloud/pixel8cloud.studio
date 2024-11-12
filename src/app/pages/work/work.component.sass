@@ -1,18 +1,4 @@
 .work-section
-    &.in-view
-        .work
-            opacity: 1
-            transform: translateY(0px)
-        .work-cards
-            .work-card
-                opacity: 1
-                transform: translateY(0px)
-
-    .work
-        opacity: 0
-        transform: translateY(50px)
-        transition: transform 0.3s ease,opacity 0.3s ease
-
     .work-cards
         display: flex
         justify-content: center
@@ -28,14 +14,6 @@
             align-items: center
             flex-direction: column
             justify-content: flex-start
-            opacity: 0
-            transform: translateY(50px)
-            transition: transform 0.3s ease,opacity 0.3s ease
-
-            &:nth-child(2)
-                transition-delay: 0.1s
-            &:nth-child(3)
-                transition-delay: 0.2s
 
             .work-image
                 width: 100%
@@ -56,21 +34,21 @@
                     font-size: 1.2em
                     color: #3f3f3f
                     margin-bottom: 10px
-                    font-family: 'Inter-Medium'
+                    font-family: 'Inter-Medium',sans-serif
 
                 p
                     font-size: 0.8em
                     color: #666
                     line-height: 1.4em
                     margin-bottom: 20px
-                    font-family: 'Inter-Regular'
+                    font-family: 'Inter-Regular',sans-serif
 
                 .work-link
                     -webkit-tap-highlight-color: transparent
                     color: #6e6e6e
                     text-decoration: none
                     font-size: 0.9em
-                    font-family: 'Inter-Light'
+                    font-family: 'Inter-Light',sans-serif
                     margin-top: auto
 
                     &:hover
@@ -88,7 +66,7 @@
             border-radius: 4px
             padding: 10px 15px
             font-size: 1em
-            font-family: 'Inter-Regular'
+            font-family: 'Inter-Regular',sans-serif
             cursor: pointer
             color: #666
             transition: background 0.3s ease, color 0.3s ease
@@ -111,6 +89,8 @@
             cursor: pointer
             overflow: hidden
             width: 100%
+            background-color: #ffffff
+            aspect-ratio: 1 / 1
             height: auto
             border-radius: 8px
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08)
@@ -125,15 +105,6 @@
                 object-fit: cover
 
 .case-studies-section
-    .case-studies
-        opacity: 0
-        transform: translateY(50px)
-        transition: transform 0.3s ease,opacity 0.3s ease
-
-        &.in-view
-            opacity: 1
-            transform: translateY(0px)
-
     .timeline
         position: relative
 
@@ -142,13 +113,6 @@
             justify-content: space-between
             align-items: center
             position: relative
-            opacity: 0
-            transform: translateY(50px)
-            transition: opacity 0.5s ease-in, transform 0.7s ease-in
-
-            &.in-view
-                opacity: 1
-                transform: translateY(0px)
             &:not(:last-child)
                 margin-bottom: 60px
             &:nth-child(odd) .content
@@ -191,17 +155,17 @@
                 p
                     color: #6e6e6e
                     font-size: 0.9em
-                    font-family: 'Inter-Regular'
+                    font-family: 'Inter-Regular',sans-serif
 
                 .case-study-title
                     font-size: 1.2rem
                     color: #3f3f3f
                     margin-bottom: 10px
-                    font-family: 'Inter-Medium'
+                    font-family: 'Inter-Medium',sans-serif
 
                 .case-study-link
                     font-size: 0.9rem
-                    font-family: 'Inter-Light'
+                    font-family: 'Inter-Light',sans-serif
                     display: inline-block
                     margin-top: 10px
                     padding: 12px 18px

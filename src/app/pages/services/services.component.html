@@ -1,4 +1,4 @@
-<section class="services-section section" #section>
+<section class="services-section section">
     <div class="section-heading title services">
         <h2>OUR SERVICES</h2>
         <h3>Why Choose Us</h3>
@@ -20,14 +20,14 @@
     </div>
 </section>
 <section class="process-section section">
-    <div class="process-title section-heading title" #title>
+    <div class="section-heading title">
         <h2>Our Process</h2>
         <h3>A Streamlined Approach to Success</h3>
         <p>We follow a clear, step-by-step process that ensures smooth collaboration and exceptional results. From
             initial contact to post-launch support, each phase of our process is designed to deliver the best outcomes
             for your project. Here's how we turn your vision into reality:</p>
     </div>
-    <div class="process-container" #container>
+    <div class="process-container">
         <div class="process-left-panel">
             <ul class="steps-list">
                 <li *ngFor="let step of steps; let i = index" [ngClass]="{'active': i === activeStep}"
@@ -48,7 +48,7 @@
     </div>
 </section>
 <section class="cost-estimator-section section">
-    <div class="content-left section-heading" #cost>
+    <div class="content-left section-heading">
         <h2>How Much Does It Cost?</h2>
         <h3 class="subtitle">Get an Estimate for Your Project Based On Your Requirements</h3>
         <p>

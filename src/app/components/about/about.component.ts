@@ -1,5 +1,5 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit } from '@angular/core';
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,17 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './about.component.html',
   styleUrl: './about.component.sass'
 })
-export class AboutComponent implements AfterViewInit {
-  ClientsCount = 0;
-  ProjectsCount = 0;
-  HoursCount = 0;
-
-  targetClients = 2;
-  targetProjects = 2;
-  targetHours = 25;
-
-  duration = 2000;
-
+export class AboutComponent {
   cardsData = [
     {
       bgColor: 'rgb(255, 171, 171)',
@@ -50,60 +40,4 @@ export class AboutComponent implements AfterViewInit {
       link: '/services'
     }
   ];
-
-  @ViewChild('aboutSection') aboutSection!: ElementRef;
-  @ViewChild('card', { static: false }) card!: ElementRef;
-  @ViewChild('cards') cards!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
-
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
-
-  createObserver() {
-    const observer_stats = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          this.startCounting();
-          observer_stats.disconnect();
-        }
-      });
-    });
-    observer_stats.observe(this.aboutSection.nativeElement);
-
-    const observer_cards = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.cards.nativeElement.classList.add('in-view');
-          observer_cards.disconnect();
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    observer_cards.observe(this.card.nativeElement);
-  }
-
-  startCounting() {
-    this.animateCount(this.targetClients, 'ClientsCount');
-    this.animateCount(this.targetProjects, 'ProjectsCount');
-    this.animateCount(this.targetHours, 'HoursCount');
-  }
-
-  animateCount(targetValue: number, property: 'ClientsCount' | 'ProjectsCount' | 'HoursCount') {
-    const stepTime = Math.abs(Math.floor(this.duration / targetValue));
-
-    const increment = () => {
-      if (this[property] < targetValue) {
-        this[property]++;
-        setTimeout(increment, stepTime);
-      }
-    };
-
-    increment();
-  }
 }

@@ -26,7 +26,7 @@ export class ContactusComponent implements AfterViewInit, OnInit {
     // Open Graph Tags for Contact Us
     this.meta.updateTag({ property: 'og:title', content: 'Contact Us | Pixel8Cloud' });
     this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Pixel8Cloud for innovative web development and design solutions.' });
-    this.meta.updateTag({ property: 'og:image', content: '/path/to/your/image.jpg' }); // Example image
+    this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/contact' });
   }
 

@@ -9,10 +9,10 @@
     <div class="slides" #slidesContainer>
         <div class="testimonial" *ngFor="let testimonial of testimonials">
             <div class="client-info">
-                <img [src]="testimonial.image + '_300x300.jpg'" [alt]="testimonial.name" class="client-image" [srcset]="
-                  testimonial.image + '_100x100.jpg 100w, ' + 
-                  testimonial.image + '_200x200.jpg 200w, ' + 
-                  testimonial.image + '_300x300.jpg 300w'"
+                <img [src]="testimonial.image + '_300x300.webp'" [alt]="testimonial.name" class="client-image" [srcset]="
+                  testimonial.image + '_100x100.webp 100w, ' + 
+                  testimonial.image + '_200x200.webp 200w, ' + 
+                  testimonial.image + '_300x300.webp 300w'"
                     sizes="(max-width: 600px) 100px, (max-width: 1200px) 200px, 300px" />
                 <div class="client-details">
                     <h4 class="client-name">{{ testimonial.name }}</h4>

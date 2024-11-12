@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     // Open Graph Tags
     this.meta.updateTag({ property: 'og:title', content: 'Home | Pixel8Cloud' });
     this.meta.updateTag({ property: 'og:description', content: 'Discover Pixel8Cloud, where creativity meets technology. We specialize in web and app development, and logo design.' });
-    this.meta.updateTag({ property: 'og:image', content: '/logo.jpg' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio' });
 
     // Structured Data for Social Links

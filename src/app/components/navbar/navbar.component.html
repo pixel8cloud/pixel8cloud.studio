@@ -7,11 +7,24 @@
         <button class="toggle-button" (click)="toggleNav()">☰</button>
     </div>
     <ul class="nav-links" [class.active]="isNavOpen">
-        <li><a (click)="toggleNav()" routerLink="/" routerLinkActive="active-link"
-                [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-        <li><a (click)="toggleNav()" routerLink="/work" routerLinkActive="active-link">Portfolio</a></li>
-        <li><a (click)="toggleNav()" routerLink="/services" routerLinkActive="active-link">Services</a></li>
-        <li><a (click)="toggleNav()" routerLink="/about" routerLinkActive="active-link">About Us</a></li>
-        <li><a (click)="toggleNav()" routerLink="/contact">Contact Us</a></li>
+        <li>
+            <a (click)="toggleNav()" routerLink="/" routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}" aria-label="Go to Home page">Home</a>
+        </li>
+        <li>
+            <a (click)="toggleNav()" routerLink="/work" routerLinkActive="active-link"
+                aria-label="View Portfolio">Portfolio</a>
+        </li>
+        <li>
+            <a (click)="toggleNav()" routerLink="/services" routerLinkActive="active-link"
+                aria-label="Explore Services">Services</a>
+        </li>
+        <li>
+            <a (click)="toggleNav()" routerLink="/about" routerLinkActive="active-link"
+                aria-label="Learn About Us">About Us</a>
+        </li>
+        <li>
+            <a (click)="toggleNav()" routerLink="/contact" aria-label="Get in Touch">Contact Us</a>
+        </li>
     </ul>
 </nav>

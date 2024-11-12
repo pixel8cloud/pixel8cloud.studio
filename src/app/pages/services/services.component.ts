@@ -1,5 +1,5 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { isPlatformBrowser, NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 
@@ -10,7 +10,7 @@ import { Meta } from '@angular/platform-browser';
   templateUrl: './services.component.html',
   styleUrl: './services.component.sass'
 })
-export class ServicesComponent implements AfterViewInit, OnInit {
+export class ServicesComponent implements OnInit {
   steps = [
     {
       title: 'Connect',
@@ -71,16 +71,8 @@ export class ServicesComponent implements AfterViewInit, OnInit {
     }
   ];
 
-  @ViewChild('section') section!: ElementRef;
-  @ViewChild('title') title!: ElementRef;
-  @ViewChild('container') container!: ElementRef;
-  @ViewChild('cost') cost!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private meta: Meta) { }
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
+
+  constructor(private meta: Meta) { }
 
   ngOnInit() {
     // Main SEO Tags for Services
@@ -91,50 +83,8 @@ export class ServicesComponent implements AfterViewInit, OnInit {
     // Open Graph Tags for Services
     this.meta.updateTag({ property: 'og:title', content: 'Services | Pixel8Cloud' });
     this.meta.updateTag({ property: 'og:description', content: 'Our design and development services are tailored to elevate your business. Discover what we offer.' });
-    this.meta.updateTag({ property: 'og:image', content: '/cards/uiux.svg' }); // Example image
+    this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/services' });
-  }
-
-  createObserver() {
-    const observer_section = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_section.disconnect();
-        }
-      });
-    });
-    observer_section.observe(this.section.nativeElement);
-
-    const observer_title = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_title.disconnect();
-        }
-      });
-    });
-    observer_title.observe(this.title.nativeElement);
-
-    const observer_container = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_container.disconnect();
-        }
-      });
-    });
-    observer_container.observe(this.container.nativeElement);
-
-    const observer_cost = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_cost.disconnect();
-        }
-      });
-    });
-    observer_cost.observe(this.cost.nativeElement);
   }
 
   activeStep = 0;

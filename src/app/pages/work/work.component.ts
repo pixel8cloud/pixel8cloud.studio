@@ -1,17 +1,16 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 import { WorkItems } from '../../components/work/work.component';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-work',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   templateUrl: './work.component.html',
   styleUrl: './work.component.sass',
 })
-export class WorkComponent implements AfterViewInit, OnInit {
+export class WorkComponent implements OnInit {
   categories = ['All', 'UI/UX', 'Motion', 'Logo', 'Website', 'Apps'];
   activeCategory = 'All';
 
@@ -58,15 +57,7 @@ export class WorkComponent implements AfterViewInit, OnInit {
   ];
 
 
-  @ViewChild('timeline') timeline!: ElementRef;
-  @ViewChild('section') section!: ElementRef;
-  @ViewChild('title') title!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private meta: Meta) { }
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
+  constructor(private meta: Meta) { }
 
   ngOnInit(): void {
     // Main SEO Tags
@@ -77,7 +68,7 @@ export class WorkComponent implements AfterViewInit, OnInit {
     // Open Graph Tags
     this.meta.updateTag({ property: 'og:title', content: 'Our Work | Pixel8Cloud - Portfolio and Case Studies' });
     this.meta.updateTag({ property: 'og:description', content: 'See Pixel8Cloud’s portfolio of projects in web and app development and digital design, showcasing creativity and technical expertise.' });
-    this.meta.updateTag({ property: 'og:image', content: '/logo.jpg' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/work' });
   }
 
@@ -92,40 +83,4 @@ export class WorkComponent implements AfterViewInit, OnInit {
       return this.workItems[this.activeCategory] || [];
     }
   }
-
-  createObserver() {
-    const observer_section = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_section.disconnect();
-        }
-      });
-    });
-    observer_section.observe(this.section.nativeElement);
-
-    const observer_title = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_title.disconnect();
-        }
-      });
-    });
-    observer_title.observe(this.title.nativeElement);
-
-    const observer_timeline = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_timeline.unobserve(entry.target);
-        }
-      });
-    });
-    const timelineItems = this.timeline.nativeElement.querySelectorAll('.item')
-    timelineItems.forEach((i: Element) => {
-      observer_timeline.observe(i);
-    });
-  }
-
 }

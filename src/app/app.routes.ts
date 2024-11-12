@@ -30,5 +30,9 @@ export const routes: Routes = [
         title: 'Contact Us | Pixel8Cloud - Get in Touch for Your Next Project',
         path: 'contact',
         component: ContactusComponent,
+    },
+    {
+        path: '**',
+        redirectTo: '',
     }
 ];

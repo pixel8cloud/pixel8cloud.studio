@@ -1,5 +1,5 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-aboutus',
@@ -8,7 +8,7 @@ import { Meta } from '@angular/platform-browser';
   templateUrl: './aboutus.component.html',
   styleUrl: './aboutus.component.sass'
 })
-export class AboutusComponent implements AfterViewInit, OnInit {
+export class AboutusComponent implements OnInit {
   teamMembers = [
     {
       name: 'Prakhar Sahu',
@@ -24,16 +24,7 @@ export class AboutusComponent implements AfterViewInit, OnInit {
     },
   ];
 
-  @ViewChild('section') section!: ElementRef;
-  @ViewChild('title') title!: ElementRef;
-  @ViewChild('cards') cards!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private meta: Meta) { }
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
-
+  constructor(private meta: Meta) { }
   ngOnInit() {
     // Main SEO Tags for About Us
     this.meta.updateTag({ name: 'description', content: 'Learn about Pixel8Cloud, our vision, team, and commitment to delivering exceptional design and development solutions.' });
@@ -43,42 +34,7 @@ export class AboutusComponent implements AfterViewInit, OnInit {
     // Open Graph Tags for About Us
     this.meta.updateTag({ property: 'og:title', content: 'About Us | Pixel8Cloud' });
     this.meta.updateTag({ property: 'og:description', content: 'Discover our story, vision, and the talented team behind Pixel8Cloud.' });
-    this.meta.updateTag({ property: 'og:image', content: '/team/prakhar.jpeg' }); // Example image
+    this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/about' });
-  }
-
-  createObserver() {
-    const observer_section = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_section.disconnect();
-        }
-      });
-    });
-    observer_section.observe(this.section.nativeElement);
-
-    const observer_title = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_title.disconnect();
-        }
-      });
-    });
-    observer_title.observe(this.title.nativeElement);
-
-    const observer_cards = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const cardItems = this.cards.nativeElement.querySelectorAll('.team-member')
-          cardItems.forEach((i: Element) => {
-            i.classList.add('in-view');
-          });
-          observer_cards.disconnect();
-        }
-      });
-    });
-    observer_cards.observe(this.cards.nativeElement);
   }
 }

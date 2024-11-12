@@ -1,4 +1,4 @@
-<section class="about-page section" #section>
+<section class="about-page section">
     <div class="section-heading title about-us">
         <h2>ABOUT US</h2>
         <h3>Delivering Creative and High-Quality Solutions Worldwide</h3>
@@ -10,11 +10,11 @@
 
     <div class="video">
         <video class="video-metadata" loading="lazy" src="./pixel8cloud_intro.mp4"
-            poster="./pixel8cloud_intro_poster.jpg" width="100%" height="100%" controls loop></video>
+            poster="./pixel8cloud_intro_poster.webp" width="100%" height="100%" controls loop></video>
     </div>
 </section>
 <section class="about-team section">
-    <div class="section-heading title team-heading" #title>
+    <div class="section-heading title">
         <h2>MEET THE TEAM</h2>
         <h3>Our Dedicated Professionals</h3>
         <p>Pixel8Cloud is led by passionate individuals who bring diverse expertise to each project. Our team is
@@ -22,10 +22,10 @@
             leadership and a shared commitment to quality, we work collaboratively to bring innovative ideas to life.
         </p>
     </div>
-    <div class="team" #cards>
+    <div class="team">
         <div *ngFor="let member of teamMembers" class="team-member">
-            <img [src]="member.imgSrc+'_400x400.jpeg'" [alt]="member.name + ' - ' + member.role"
-                [srcset]="member.imgSrc + '_100x100.jpeg 100w, ' + member.imgSrc + '_200x200.jpeg 200w, ' + member.imgSrc + '_400x400.jpeg 400w'"
+            <img [src]="member.imgSrc+'_400x400.webp'" [alt]="member.name + ' - ' + member.role"
+                [srcset]="member.imgSrc + '_100x100.webp 100w, ' + member.imgSrc + '_200x200.webp 200w, ' + member.imgSrc + '_400x400.webp 400w'"
                 sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
             <h3>{{ member.name }}</h3>
             <p>{{ member.role }}</p>
