@@ -67,9 +67,10 @@
         <p>*This is Estimated cost, actual cost
             may be different</p>
         <div class="currency-toggle">
-            <span class="currency-label" [ngClass]="{'active': !isINR}">USD</span>
-            <input class="switch" type="checkbox" [(ngModel)]="isINR" (change)="toggleCurrency()" />
-            <span class="currency-label" [ngClass]="{'active': isINR}">INR</span>
+            <label for="currency-toggle" class="currency-label" [ngClass]="{'active': !isINR}">USD</label>
+            <input id="currency-toggle" class="switch" type="checkbox" [(ngModel)]="isINR"
+                (change)="toggleCurrency()" />
+            <label for="currency-toggle" class="currency-label" [ngClass]="{'active': isINR}">INR</label>
         </div>
     </div>
 

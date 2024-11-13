@@ -1,9 +1,10 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { NavigationEnd, provideRouter, Router, withInMemoryScrolling } from '@angular/router';
+import { NavigationEnd, provideRouter, Router, UrlHandlingStrategy, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrailingSlashUrlHandlingStrategy } from './trailing-slash-url-handling-strategy';
 
 declare let gtag: Function;
 
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
   provideRouter(routes, withInMemoryScrolling({
     scrollPositionRestoration: "top",
   })),
+  { provide: UrlHandlingStrategy, useClass: TrailingSlashUrlHandlingStrategy },
   provideClientHydration(),
   importProvidersFrom(BrowserAnimationsModule),
   {

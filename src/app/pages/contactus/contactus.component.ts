@@ -1,5 +1,4 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-contactus',
@@ -8,14 +7,8 @@ import { Meta } from '@angular/platform-browser';
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.sass'
 })
-export class ContactusComponent implements AfterViewInit, OnInit {
-  @ViewChild('section') section!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private meta: Meta) { }
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
+export class ContactusComponent implements OnInit {
+  constructor(private meta: Meta) { }
 
   ngOnInit() {
     // Main SEO Tags for Contact Us
@@ -28,18 +21,5 @@ export class ContactusComponent implements AfterViewInit, OnInit {
     this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Pixel8Cloud for innovative web development and design solutions.' });
     this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/contact' });
-  }
-
-
-  createObserver() {
-    const observer_section = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_section.disconnect();
-        }
-      });
-    });
-    observer_section.observe(this.section.nativeElement);
   }
 }

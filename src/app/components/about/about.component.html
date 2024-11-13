@@ -19,7 +19,7 @@
         <p>We offer a range of services to help bring your vision to life. Whether you're looking for a stunning UI/UX
             design, full-stack development for web and mobile apps, motion design, or a professional logo, we've got you
             covered.</p>
-        <a class="cta-button" routerLink="/services">
+        <a class="cta-button" aria-label="Explore Services" routerLink="/services">
             <button class="button">
                 <div class="svgIcon" style="background: url(./explore.svg) no-repeat; background-size: cover"></div>
                 Explore all services
@@ -27,18 +27,7 @@
         </a>
     </div>
     <div class="cards-right">
-        <div class="service-card">
-            <div class="icon-container" [style.backgroundColor]="cardsData[0].bgColor">
-                <div class="icon" [style.backgroundImage]="'url(' + cardsData[0].imgSrc + ')'" [ariaHidden]="true">
-                </div>
-            </div>
-            <div class="card-content">
-                <h3>{{ cardsData[0].title }}</h3>
-                <p>{{ cardsData[0].description }}</p>
-                <a [routerLink]="cardsData[0].link" class="read-more">Read more</a>
-            </div>
-        </div>
-        <div class="service-card" *ngFor="let card of cardsData.slice(1, cardsData.length)">
+        <div class="service-card" *ngFor="let card of cardsData">
             <div class="icon-container" [style.backgroundColor]="card.bgColor">
                 <div class="icon" [style.backgroundImage]="'url(' + card.imgSrc + ')'" [ariaHidden]="true">
                 </div>
@@ -46,7 +35,6 @@
             <div class="card-content">
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
-                <a [routerLink]="card.link" class="read-more">Read more</a>
             </div>
         </div>
     </div>

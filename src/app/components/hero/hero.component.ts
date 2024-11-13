@@ -1,5 +1,5 @@
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit } from '@angular/core';
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { isPlatformBrowser, NgFor } from '@angular/common';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.sass'
 })
-export class HeroComponent implements AfterViewInit {
+export class HeroComponent {
   artImages_1 = [
     { imgSrc: './hero/bubble-tea-illustration', alt: 'Bubble tea illustration' },
     { imgSrc: './hero/burger-illustration', alt: 'Burger illustration' },
@@ -29,26 +29,4 @@ export class HeroComponent implements AfterViewInit {
     { href: 'https://discord.gg/9XXaRHPvkd', src: './socials/discord.svg', alt: 'Discord', ariaLabel: 'Join Pixel8Cloud on Discord' },
     { href: 'https://github.com/pixel8cloud', src: './socials/github.svg', alt: 'GitHub', ariaLabel: 'Visit Pixel8Cloud on GitHub' }
   ];
-
-
-  @ViewChild('heading') heading!: ElementRef;
-  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
-
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.createObserver();
-    }
-  }
-
-  createObserver() {
-    const observer_heading = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer_heading.disconnect();
-        }
-      });
-    });
-    observer_heading.observe(this.heading.nativeElement);
-  }
 }

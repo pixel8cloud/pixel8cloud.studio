@@ -9,6 +9,7 @@
                 <a [href]="social.href" target="_blank" rel="noopener noreferrer external"
                     [attr.data-platform]="social.alt" [ariaLabel]="social.ariaLabel" class="social-link">
                     <div class="social-icon" [style.backgroundImage]="'url(' + social.src + ')'" [ariaHidden]="true">
+                        <span class="visually-hidden">{{ social.ariaLabel }}</span>
                     </div>
                 </a>
             </ng-container>
@@ -16,13 +17,13 @@
     </div>
     <div class="footer-content">
         <div class="footer-content-left">
-            <nav class="footer-column">
+            <ul class="footer-column">
                 <li><a aria-label="Go to Home page" routerLink="/">Home</a></li>
                 <li><a aria-label="View Portfolio" routerLink="/work">Portfolio</a></li>
                 <li><a aria-label="Explore Services" routerLink="/services">Services</a></li>
                 <li><a aria-label="Learn About Us" routerLink="/about">About Us</a></li>
                 <li><a aria-label="Get in Touch" routerLink="/contact">Contact Us</a></li>
-            </nav>
+            </ul>
         </div>
         <div class="footer-content-right">
             <h3>Subscribe to our newsletter</h3>

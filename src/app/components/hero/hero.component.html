@@ -1,5 +1,5 @@
 <div class="hero">
-    <div class="hero-content" #heading>
+    <div class="hero-content">
         <div class="art-area-left">
             <ng-container *ngFor="let art of artImages_1">
                 <img [src]="art.imgSrc+'_300x300.webp'" [alt]="art.alt"
@@ -25,10 +25,11 @@
             </div>
             <div class="socials">
                 <ng-container *ngFor="let social of socialLinks">
-                    <a [href]="social.href" target="_blank" rel="noopener noreferrer external" [attr.data-platform]="social.alt"
-                        [ariaLabel]="social.ariaLabel" class="social-link">
+                    <a [href]="social.href" target="_blank" rel="noopener noreferrer external"
+                        [attr.data-platform]="social.alt" [ariaLabel]="social.ariaLabel" class="social-link">
                         <div class="social-icon" [style.backgroundImage]="'url(' + social.src + ')'"
                             [ariaHidden]="true"></div>
+                        <span class="visually-hidden">{{ social.ariaLabel }}</span>
                     </a>
                 </ng-container>
             </div>
