@@ -61,7 +61,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "./"
+              "baseHref": "/pixel8cloud.studio/"
             },
             "development": {
               "optimization": false,

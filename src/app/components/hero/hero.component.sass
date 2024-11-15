@@ -1,12 +1,19 @@
-@mixin animate-art($name, $x1, $x2, $r)
-    @keyframes #{$name}
-        from
-            transform: translateX(#{$x1}) rotateZ(#{$r})
-            opacity: 0
+@keyframes move1
+    from
+        transform: translateX(-100px) rotateZ(var(--rotation, 0deg))
+        opacity: 0
 
-        to
-            transform: translateX(#{$x2}) rotateZ(#{$r})
-            opacity: 1
+    to
+        transform: translateX(var(--position, 0px)) rotateZ(var(--rotation, 0deg))
+        opacity: 1
+@keyframes move2
+    from
+        transform: translateX(100px) rotateZ(var(--rotation, 0deg))
+        opacity: 0
+
+    to
+        transform: translateX(var(--position, 0px)) rotateZ(var(--rotation, 0deg))
+        opacity: 1
 
 .hero
     display: flex
@@ -41,50 +48,71 @@
         .art-area-left
             .art
                 &:nth-child(1)
-                    @include animate-art(move1, -100px, 0px, 10deg)
+                    --rotation: 10deg
+                    --position: 0px
                     top: 0
                     left: 0
                     transform: translateX(-100px) rotateZ(10deg)
                     animation: move1 0.3s forwards
+                    @media (max-width: 768px)
+                        --rotation: 0deg
+
                 &:nth-child(2)
-                    @include animate-art(move2, -100px, -20px, 0deg)
+                    --position: -20px
                     left: 0
-                    transform: translateX(-100px) rotateZ(0deg)
-                    animation: move2 0.3s forwards
+                    transform: translateX(-100px)
+                    animation: move1 0.3s forwards
                     animation-delay: 0.1s
+                    @media (max-width: 1200px)
+                        --position: -15px
+                    @media (max-width: 768px)
+                        --position: 0px
 
                 &:nth-child(3)
-                    @include animate-art(move3, -100px, 0px, -10deg)
+                    --position: 0px
+                    --rotation: -10deg
                     bottom: 0
                     left: 0
                     transform: translateX(-100px) rotateZ(-10deg)
-                    animation: move3 0.3s forwards
+                    animation: move1 0.3s forwards
                     animation-delay: 0.2s
+                    @media (max-width: 768px)
+                        --rotation: 0deg
 
         .art-area-right
             .art
                 &:nth-child(1)
-                    @include animate-art(move4, 100px, 0px, -10deg)
+                    --rotation: -10deg
+                    --position: 0px
                     animation-delay: 0.1s
                     top: 0
                     right: 0
                     transform: translateX(100px) rotateZ(-10deg)
-                    animation: move4 0.3s forwards
+                    animation: move2 0.3s forwards
+                    @media (max-width: 768px)
+                        --rotation: 0deg
 
                 &:nth-child(2)
-                    @include animate-art(move5, 100px, 20px, 0deg)
+                    --position: 20px
                     right: 0
-                    transform: translateX(100px) rotateZ(0deg)
-                    animation: move5 0.3s forwards
+                    transform: translateX(100px)
+                    animation: move2 0.3s forwards
                     animation-delay: 0.1s
+                    @media (max-width: 1200px)
+                        --position: 15px
+                    @media (max-width: 768px)
+                        --position: 0px
 
                 &:nth-child(3)
-                    @include animate-art(move6, 100px, 0px, 10deg)
+                    --position: 0px
+                    --rotation: 10deg
                     bottom: 0
                     right: 0
                     transform: translateX(100px) rotateZ(10deg)
-                    animation: move6 0.3s forwards
+                    animation: move2 0.3s forwards
                     animation-delay: 0.2s
+                    @media (max-width: 768px)
+                        --rotation: 0deg
 
         .hero-content-area
             flex: 1
@@ -123,7 +151,7 @@
                     padding: 0 40px
                     line-height: 1.2em
                     span:nth-child(1)
-                        color: #00d49f
+                        color: #00b185
                     span:nth-child(2)
                         color: #d40059
                 .tagline
@@ -255,15 +283,6 @@
         .hero-content
             max-width: 800px
             margin: 0 auto
-            &.in-view
-                .art-area-left
-                    .art
-                        &:nth-child(2)
-                            transform: translateX(-15px) rotateZ(0deg)
-                .art-area-right
-                    .art
-                        &:nth-child(2)
-                            transform: translateX(15px) rotateZ(0deg)
             .art-area-left,.art-area-right
                 .art
                     width: 120px
@@ -302,57 +321,12 @@
         .hero-content
             flex-direction: column
             row-gap: 20px
-            &.in-view
-                .art-area-left
-                    .art
-                        opacity: 1
-                        &:nth-child(1)
-                            transform: translateX(0px) rotateZ(0deg)
-
-                        &:nth-child(2)
-                            transform: translateX(0px) rotateZ(0deg)
-
-                        &:nth-child(3)
-                            transform: translateX(0) rotateZ(0deg)
-                .art-area-right
-                    .art
-                        opacity: 1
-                        &:nth-child(1)
-                            transform: translateX(0) rotateZ(0deg)
-
-                        &:nth-child(2)
-                            transform: translateX(0px) rotateZ(0deg)
-
-                        &:nth-child(3)
-                            transform: translateX(0) rotateZ(0deg)
             .art-area-left,.art-area-right
                 flex-direction: row
                 column-gap: 20px
                 .art
                     width: 100px
                     height: 100px
-
-            .art-area-left
-                .art
-                    &:nth-child(1)
-                        transform: translateX(-100px) rotateZ(0deg)
-
-                    &:nth-child(2)
-                        transform: translateX(-100px) rotateZ(0deg)
-
-                    &:nth-child(3)
-                        transform: translateX(-100px) rotateZ(0deg)
-
-            .art-area-right
-                .art
-                    &:nth-child(1)
-                        transform: translateX(100px) rotateZ(0deg)
-
-                    &:nth-child(2)
-                        transform: translateX(100px) rotateZ(0deg)
-
-                    &:nth-child(3)
-                        transform: translateX(100px) rotateZ(0deg)
             .hero-content-area
                 .hero-content-text
                     h1
