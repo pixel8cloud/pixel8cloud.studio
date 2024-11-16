@@ -10,8 +10,8 @@
     </div>
     <div class="work-cards">
         <div *ngFor="let project of latestProjects" class="work-card">
-            <img [src]="project.imgSrc+'_600x600.png'" [alt]="project.title"
-                [srcset]="project.imgSrc + '_200x200.png 100w, ' + project.imgSrc + '_400x400.png 200w, ' + project.imgSrc + '_600x600.png 400w'"
+            <img [src]="project.imgSrc+'_400x400.webp'" [alt]="project.title"
+                [srcset]="project.imgSrc + '_100x100.webp 100w, ' + project.imgSrc + '_200x200.webp 200w, ' + project.imgSrc + '_400x400.webp 400w'"
                 sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px" class="work-image">
             <div class="work-content">
                 <h3>{{ project.title }}</h3>
@@ -31,8 +31,8 @@
     </div>
     <div class="work-grid">
         <div *ngFor="let project of getActiveWorkItems()" class="work-item">
-            <img [src]="project.imgSrc+'_600x600.webp'" [alt]="project.alt"
-                [srcset]="project.imgSrc + '_200x200.webp 100w, ' + project.imgSrc + '_400x400.webp 200w, ' + project.imgSrc + '_600x600.webp 400w'"
+            <img [src]="project.imgSrc+'_400x400.webp'" [alt]="project.alt"
+                [srcset]="project.imgSrc + '_100x100.webp 100w, ' + project.imgSrc + '_200x200.webp 200w, ' + project.imgSrc + '_400x400.webp 400w'"
                 sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
         </div>
     </div>
@@ -56,8 +56,8 @@
             </div>
             <div class="marker"></div>
             <div class="image">
-                <img [src]="study.imgSrc+'_600x600.webp'" [alt]="study.alt"
-                    [srcset]="study.imgSrc + '_200x200.webp 100w, ' + study.imgSrc + '_400x400.webp 200w, ' + study.imgSrc + '_600x600.webp 400w'"
+                <img [src]="study.imgSrc+'_400x400.webp'" [alt]="study.alt"
+                    [srcset]="study.imgSrc + '_100x100.webp 100w, ' + study.imgSrc + '_200x200.webp 200w, ' + study.imgSrc + '_400x400.webp 400w'"
                     sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
             </div>
         </div>

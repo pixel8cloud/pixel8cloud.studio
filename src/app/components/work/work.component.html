@@ -17,8 +17,8 @@
     </div>
     <div class="work-grid">
         <div *ngFor="let work of getActiveWorkItems()" class="work-item">
-            <img [src]="work.imgSrc+'_600x600.webp'" [alt]="work.alt"
-                [srcset]="work.imgSrc + '_200x200.webp 100w, ' + work.imgSrc + '_400x400.webp 200w, ' + work.imgSrc + '_600x600.webp 400w'"
+            <img [src]="work.imgSrc+'_400x400.webp'" [alt]="work.alt"
+                [srcset]="work.imgSrc + '_100x100.webp 100w, ' + work.imgSrc + '_200x200.webp 200w, ' + work.imgSrc + '_400x400.webp 400w'"
                 sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
         </div>
     </div>

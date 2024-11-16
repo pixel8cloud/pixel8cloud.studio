@@ -24,9 +24,9 @@
     </div>
     <div class="team">
         <div *ngFor="let member of teamMembers" class="team-member">
-            <img [src]="member.imgSrc+'_400x400.webp'" [alt]="member.name + ' - ' + member.role"
-                [srcset]="member.imgSrc + '_100x100.webp 100w, ' + member.imgSrc + '_200x200.webp 200w, ' + member.imgSrc + '_400x400.webp 400w'"
-                sizes="(max-width: 600px) 100px,(max-width: 1200px) 200px,400px">
+            <img [src]="member.imgSrc+'_200x200.webp'" [alt]="member.name + ' - ' + member.role"
+                [srcset]="member.imgSrc + '_50x50.webp 50w, ' + member.imgSrc + '_100x100.webp 100w, ' + member.imgSrc + '_200x200.webp 200w'"
+                sizes="(max-width: 600px) 50px,(max-width: 1200px) 100px,200px">
             <h3>{{ member.name }}</h3>
             <p>{{ member.role }}</p>
             <p class="desc">{{ member.description }}</p>

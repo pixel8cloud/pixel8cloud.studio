@@ -9,11 +9,11 @@
     <div class="slides" #slidesContainer>
         <div class="testimonial" *ngFor="let testimonial of testimonials">
             <div class="client-info">
-                <img [src]="testimonial.image + '_300x300.webp'" [alt]="testimonial.name" class="client-image" [srcset]="
+                <img [src]="testimonial.image + '_200x200.webp'" [alt]="testimonial.name" class="client-image" [srcset]="
+                  testimonial.image + '_50x50.webp 50w, ' + 
                   testimonial.image + '_100x100.webp 100w, ' + 
-                  testimonial.image + '_200x200.webp 200w, ' + 
-                  testimonial.image + '_300x300.webp 300w'"
-                    sizes="(max-width: 600px) 100px, (max-width: 1200px) 200px, 300px" />
+                  testimonial.image + '_200x200.webp 200w'"
+                    sizes="(max-width: 600px) 50px, (max-width: 1200px) 100px, 200px" />
                 <div class="client-details">
                     <h4 class="client-name">{{ testimonial.name }}</h4>
                     <p class="client-role">{{ testimonial.role }}</p>
@@ -31,12 +31,12 @@
     <div class="cta-content">
         <div class="cta-left">
             <div class="image">
-                <img src="./3d/pencil_3d_360x360.png" alt="pencil"
-                    srcset="./3d/pencil_3d_180x180.png 180w, ./3d/pencil_3d_360x360.png 360w"
-                    sizes="(max-width: 600px) 180px,360px">
-                <img src="./3d/code_3d_360x360.png" alt="code"
-                    srcset="./3d/code_3d_180x180.png 180w, ./3d/code_3d_360x360.png 360w"
-                    sizes="(max-width: 600px) 180px,360px">
+                <img src="./3d/pencil_3d_180x180.png" alt="pencil"
+                    srcset="./3d/pencil_3d_120x120.png 120w, ./3d/pencil_3d_180x180.png 180"
+                    sizes="(max-width: 600px) 120px,180px">
+                <img src="./3d/code_3d_180x180.png" alt="code"
+                    srcset="./3d/code_3d_120x120.png 120w, ./3d/code_3d_180x180.png 180"
+                    sizes="(max-width: 600px) 120px,180px">
             </div>
             <div>
                 <h2>Your Next Step Awaits!</h2>
