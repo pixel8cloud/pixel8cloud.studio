@@ -1,0 +1,21 @@
+<section class="faq-section section">
+  <div class="section-heading title">
+    <h2>Frequently Asked Questions</h2>
+    <h3>Your Questions, Answered</h3>
+    <p>We understand that you might have some questions about our services, process, or approach. Here are the answers
+      to some of the most commonly asked questions. If you don't see your question here, feel free to reach out to us
+      directly. Our goal is to ensure you have all the information you need to make confident decisions.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+      <button class="faq-question" (click)="toggleAnswer(i)">
+        {{ faq.question }}
+        <span class="icon" style="background: url(./arrow.svg) no-repeat; background-size: cover"
+          [class.active]="faq.open"></span>
+      </button>
+      <div class="faq-answer" [class.active]="faq.open">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </div>
+</section>

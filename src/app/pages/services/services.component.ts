@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { DOCUMENT, NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 
@@ -15,33 +15,33 @@ export class ServicesComponent implements OnInit {
     {
       title: 'Connect',
       description:
-        'Your journey begins by reaching out to us. We encourage you to share your project ideas, goals, and any specific requirements you may have. Our team will review your input and prepare to connect with you, ensuring we understand your vision thoroughly. This foundational step is crucial for setting the stage for a successful partnership, allowing us to align our strategies with your expectations and objectives. We aim to provide a seamless communication experience, ensuring that your needs are prioritized from the very start of the project.'
+        'Kickstart your journey with us by sharing your project ideas, goals, and requirements. This step sets the foundation for a strong partnership, aligning our strategies with your vision to ensure we meet your expectations from the outset.'
     },
     {
       title: 'Discover',
       description:
-        'In our first meeting, we dive deep into your project requirements. This session is designed to facilitate an open dialogue where we can explore your ideas, understand your vision, and discuss any challenges you may face. We take the time to brainstorm potential solutions that align with your budget and timeline. This collaborative approach ensures that we have a comprehensive understanding of your needs, enabling us to tailor our services effectively. By the end of this meeting, we will outline the next steps in our process, paving the way for a successful project.'
+        'Dive into your project\'s potential during a collaborative session. We\'ll explore your ideas, understand your challenges, and craft tailored solutions that align with your timeline and budget, paving the way for success.'
     },
     {
       title: 'Design',
       description:
-        'Following the discovery session, we enter the design phase where our team transforms your ideas into tangible concepts. We develop wireframes and prototypes that visualize the layout, functionality, and user experience of your project. Our design process incorporates user feedback to ensure that the end result meets your expectations. We focus on creating intuitive and aesthetically pleasing designs that resonate with your target audience. This phase is critical, as it allows for adjustments before development begins, ultimately saving time and resources while ensuring alignment with your vision.'
+        'Transforming ideas into reality begins here. We create wireframes, prototypes, and designs that capture your vision, ensuring user-friendly, visually appealing outcomes that resonate with your audience.'
     },
     {
-      title: 'Development',
+      title: 'Develop',
       description:
-        'With the design approved, our development team begins the coding process. We utilize the latest technologies and frameworks to build a robust and responsive product. Throughout this phase, we emphasize best practices in coding to ensure that your project is not only functional but also scalable for future enhancements. Our developers maintain open communication with you, providing regular updates and opportunities for feedback. Rigorous testing is integrated throughout the development process, allowing us to identify and resolve any issues early on, resulting in a smoother final product.'
+        'With designs finalized, our developers bring your project to life using cutting-edge technologies. From robust functionality to seamless scalability, every aspect is carefully built and rigorously tested.'
     },
     {
       title: 'Deploy',
       description:
-        'Once development is complete and the project has passed rigorous testing, we proceed to the deployment phase. This involves launching your project in a live environment, ensuring that it is accessible to your users. We handle all aspects of deployment, including server setup, configuration, and final checks to guarantee that everything functions correctly. Our team is dedicated to ensuring a smooth transition from development to production, minimizing downtime and user disruption. After launch, we monitor the project closely to address any immediate issues that may arise.'
+        'Launch day! We handle every detail of the deployment process to ensure your project goes live smoothly and is fully optimized for your users. Post-launch monitoring ensures immediate support if needed.'
     },
     {
       title: 'Support',
       description:
-        'Post-launch, our commitment to your project continues with comprehensive support and maintenance services. We provide ongoing updates, ensuring that your project remains secure and operates efficiently. Our team is readily available to address any concerns or issues that may arise, providing quick resolutions to maintain user satisfaction. We also offer suggestions for enhancements based on evolving user needs and technological advancements. This proactive approach ensures that your project stays relevant and continues to meet your business objectives long after launch.'
-    },
+        'Our journey doesn\'t end at launch. We provide ongoing support, updates, and enhancements to keep your project secure, relevant, and continuously aligned with your evolving business goals.'
+    }
   ];
 
   cardsData = [
@@ -49,43 +49,134 @@ export class ServicesComponent implements OnInit {
       bgColor: 'rgb(255, 171, 171)',
       imgSrc: './cards/uiux.svg',
       title: 'UI/UX Design',
-      description: 'Creating user-centered designs that offer excellent user experiences. We focus on making designs both visually appealing and functional.'
+      description: 'We craft intuitive and user-friendly interfaces that ensure seamless interactions and elevate user satisfaction.',
+      link: '/services'
     },
     {
       bgColor: 'rgb(189, 231, 255)',
       imgSrc: './cards/fullstack.svg',
       title: 'Full Stack Development',
-      description: 'Building responsive, dynamic websites that function seamlessly across devices. Perfect for businesses and personal projects.'
+      description: 'Delivering scalable and robust web solutions tailored to meet your business needs, from frontend to backend.',
+      link: '/services'
     },
     {
       bgColor: 'rgb(238, 196, 255)',
       imgSrc: './cards/motion.svg',
       title: 'Motion Design',
-      description: 'Bringing designs to life through animations and interactions. Perfect for websites, apps, and promotional content.'
+      description: 'Enhancing your digital presence with captivating animations that grab attention and drive engagement.',
+      link: '/services'
     },
     {
       bgColor: 'rgb(189, 255, 233)',
       imgSrc: './cards/logo.svg',
       title: 'Logo Design',
-      description: 'Designing unique logos that resonate with your brand identity. We create logos that stand out and communicate your values.'
+      description: 'Creating impactful logos that embody your brand’s personality and leave a lasting impression.',
+      link: '/services'
     }
   ];
 
-
-  constructor(private meta: Meta) { }
+  constructor(private meta: Meta, private renderer: Renderer2, @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
     // Main SEO Tags for Services
     this.meta.updateTag({ name: 'description', content: 'Explore our services at Pixel8Cloud, including UI/UX design, full-stack development, motion design, and logo design.' });
     this.meta.updateTag({ name: 'keywords', content: 'services, Pixel8Cloud, UI/UX design, full-stack development, motion design, logo design' });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ name: 'author', content: 'Pixel8Cloud Studio' });
 
     // Open Graph Tags for Services
     this.meta.updateTag({ property: 'og:title', content: 'Services | Pixel8Cloud' });
     this.meta.updateTag({ property: 'og:description', content: 'Our design and development services are tailored to elevate your business. Discover what we offer.' });
     this.meta.updateTag({ property: 'og:image', content: 'https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://pixel8cloud.studio/services' });
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pixel8Cloud",
+      "url": "https://pixel8cloud.studio/services",
+      "logo": "https://pixel8cloud.studio/pixel8cloud-design-development-agency-logo_100x100.webp",
+      "description": "Pixel8Cloud is a creative design and development agency specializing in web, app, and logo design.",
+      "mainEntityOfPage": "https://pixel8cloud.studio/services",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+9826412657",
+        "contactType": "owner",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://instagram.com/pixel8cloud",
+        "https://linkedin.com/company/pixel8cloud",
+        "https://youtube.com/@pixel8cloud",
+        "https://discord.gg/9XXaRHPvkd",
+        "https://github.com/pixel8cloud"
+      ],
+      "service": [
+        {
+          "@type": "Service",
+          "name": "UI/UX Design",
+          "description": "Creative UI/UX design services to bring your digital products to life.",
+          "priceCurrency": "USD",
+          "priceRange": "$300 - $2000",
+          "serviceType": "Design",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "Service",
+          "name": "Frontend Development",
+          "description": "Building fast, responsive, and scalable front-end solutions.",
+          "priceCurrency": "USD",
+          "priceRange": "$500 - $4000",
+          "serviceType": "Development",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "Service",
+          "name": "Full-Stack Development",
+          "description": "End-to-end development of scalable web applications.",
+          "priceCurrency": "USD",
+          "priceRange": "$1000 - $5000",
+          "serviceType": "Development",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "Service",
+          "name": "Motion Design",
+          "description": "High-quality animation and motion graphics for your brand.",
+          "priceCurrency": "USD",
+          "priceRange": "$800 - $3500",
+          "serviceType": "Design",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "Service",
+          "name": "Logo Design",
+          "description": "Unique and creative logo design to represent your brand identity.",
+          "priceCurrency": "USD",
+          "priceRange": "$200 - $1500",
+          "serviceType": "Design",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        }
+      ]
+    };
+  
+    // Add the structured data to the head
+    this.addStructuredData(structuredData);
   }
+
+  addStructuredData(data: object) {
+    const script = this.renderer.createElement('script');
+    this.renderer.setAttribute(script, 'type', 'application/ld+json');
+    this.renderer.appendChild(script, this.renderer.createText(JSON.stringify(data)));
+    this.renderer.appendChild(this.document.head, script);
+  }
+
 
   activeStep = 0;
 

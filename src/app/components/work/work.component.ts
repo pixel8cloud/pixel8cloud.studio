@@ -37,7 +37,8 @@ export class WorkComponent {
       { imgSrc: './work/pixel8cloud-website', alt: 'Website design for Pixel8Cloud' },
       { imgSrc: './work/portfolio-website', alt: 'Portfolio website showcasing various projects' },
       { imgSrc: './work/motion-io-website', alt: 'Motion.io website' },
-      { imgSrc: './work/airmeal-website', alt: 'Airemeal website for drone delivery service' }
+      { imgSrc: './work/airmeal-website', alt: 'Airemeal website for drone delivery service' },
+      { imgSrc: './work/sweetandcrave-website', alt: 'Sweet and Crave Backery website' }
     ],
     'Apps': [
       { imgSrc: './work/eventflow-ui-ux-project', alt: 'EventFlow app showcasing user interface and features' },

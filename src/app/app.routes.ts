@@ -4,6 +4,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { WorkComponent } from './pages/work/work.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,11 @@ export const routes: Routes = [
         title: 'Contact Us | Pixel8Cloud - Get in Touch for Your Next Project',
         path: 'contact',
         component: ContactusComponent,
+    },
+    {
+        title: 'FAQs | Pixel8Cloud - Frequently Asked Questions',
+        path: 'faqs',
+        component: FaqComponent,
     },
     {
         path: '**',
