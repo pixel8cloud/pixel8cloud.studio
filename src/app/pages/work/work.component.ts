@@ -18,6 +18,7 @@ export class WorkComponent implements OnInit {
     'UI/UX': [
       { imgSrc: './work/eventflow-ui-ux-project', alt: 'UI/UX design project for EventFlow' },
       { imgSrc: './work/devstash-ui-ux-project', alt: 'UI/UX design project for DevStash' },
+      { imgSrc: './work/mealmate-ui-ux-project', alt: 'UI/UX design project for MealMate' },
     ],
     // 'Motion': [
     //   { imgSrc: './work/motion-design-project', alt: 'Motion design project showcasing animation techniques' },
@@ -55,6 +56,13 @@ export class WorkComponent implements OnInit {
       imgSrc: './casestudy/eventflow-ui-ux-project-case-study',
       alt: 'Eventflow App Case Study'
     },
+    {
+      "title": "MealMate",
+      "description": "MealMate is a smart meal subscription app that helps users discover, subscribe, and manage daily tiffin services. This UX-focused redesign improved user engagement, enhanced meal customization, and streamlined payments, leading to a 60% increase in user retention.",
+      "link": "https://dribbble.com/shots/25750491-MealMate?utm_source=Clipboard_Shot&utm_campaign=pixel8cloud&utm_content=MealMate&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=pixel8cloud&utm_content=MealMate&utm_medium=Social_Share",
+      "imgSrc": "./casestudy/mealmate-ui-ux-project-case-study",
+      "alt": "MealMate App Case Study"
+    }
   ];
 
 

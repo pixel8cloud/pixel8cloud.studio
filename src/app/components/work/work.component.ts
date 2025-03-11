@@ -26,6 +26,7 @@ export class WorkComponent {
     'UI/UX': [
       { imgSrc: './work/eventflow-ui-ux-project', alt: 'UI/UX design project for EventFlow' },
       { imgSrc: './work/devstash-ui-ux-project', alt: 'UI/UX design project for DevStash' },
+      { imgSrc: './work/mealmate-ui-ux-project', alt: 'UI/UX design project for MealMate' },
     ],
     // 'Motion': [
     //   { imgSrc: './work/motion-design-project', alt: 'Motion design project showcasing animation techniques' },
