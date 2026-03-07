@@ -19,13 +19,14 @@ export class WorkComponent implements OnInit {
       { imgSrc: './work/eventflow-ui-ux-project', alt: 'UI/UX design project for EventFlow' },
       { imgSrc: './work/devstash-ui-ux-project', alt: 'UI/UX design project for DevStash' },
       { imgSrc: './work/mealmate-ui-ux-project', alt: 'UI/UX design project for MealMate' },
+      { imgSrc: './work/ui-ux-solo-creator-studio', alt: 'UI/UX design project for Solo Creator Studio' },
     ],
     // 'Motion': [
     //   { imgSrc: './work/motion-design-project', alt: 'Motion design project showcasing animation techniques' },
     // ],
-    // 'Logo': [
-    //   { imgSrc: './work/logo-design-pixel8cloud', alt: 'Logo design for Pixel8Cloud agency' },
-    // ],
+    'Logo': [
+      { imgSrc: './work/logo-design-brewburst', alt: 'Logo design for BrewBurst coffee brand' },
+    ],
     'Website': [
       { imgSrc: './work/pixel8cloud-website', alt: 'Website design for Pixel8Cloud' },
       { imgSrc: './work/portfolio-website', alt: 'Portfolio website showcasing various projects' },
